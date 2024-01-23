@@ -1,0 +1,154 @@
+.footer_div{
+    background-color: #ffe69d;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer_div_center{
+    width: 85%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.footer_left,.footer_right{
+    width: 50%;
+    height: 100%;
+}
+.footer_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.footer_right{
+    display: flex;
+    justify-content: flex-end;
+}
+.footer_left_text{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-content: center;
+    justify-content: center;
+    text-align: left;
+}
+.college_text_footer{
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    margin: 0;
+}
+.footer_logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.college_name_footer{
+    font-size: 25px;
+    color: #000;
+    font-weight: 700;
+    margin: 0;
+    line-height: 30px;
+    width: 90%;
+}
+.footer_right_text{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.footer_app_name{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+}
+.social_links{
+    width: 52%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_link{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+.footer_link1{
+    width: 40px;
+    height: 40px;
+    background-color: #131032;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social_icon{
+    width: 40px;
+    height: 40px;
+}
+.social_icon1{
+    width: 23px;
+    height: 23px;
+}
+@media screen and (max-width: 768px) {
+    .footer_logo{
+        width: 70px;
+        height: 70px;
+    }
+    .footer_left_text{
+        width: 100%;
+        padding-left: 10px;
+    }
+    .college_name_footer{
+        font-size: 20px;
+    }
+    .social_links{
+        width: 95%;
+    }
+    .footer_left{
+        width: 70%;
+    }
+    .footer_right{
+        width: 30%;
+    }
+    .footer_right_text{
+        width: 100%;
+    }
+    .footer_div_center{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 426px) {
+    .footer_div{
+        height: 50vh;
+    }
+    .footer_div_center{
+        flex-direction: column;
+    }
+    .footer_left,.footer_right{
+        width: 95%;
+    }
+    .footer_left_text{
+        width: 100%;
+    }
+    .college_name_footer{
+        font-size: 18px;
+    }
+
+    .footer_right_text{
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+    .social_links{
+        width: 80%;
+    }
+}
