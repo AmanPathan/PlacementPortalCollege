@@ -60,7 +60,7 @@ const Home = () => {
             <h1 data-aos="zoom-in"><a href='https://www.dypcoeakurdi.ac.in/' target='_blank' className='collee_link'  >D Y Patil College of Engineering, Akurdi, Pune</a></h1>
             <h2 className='welcome_text' data-aos="zoom-in">Your Gateway to Career Success!</h2>
           </div>
-          <button className='nav_btn_home' onClick={handleRedirectDashboard}>Get Started <img className='rocket' src={rocket} /> </button>
+          <button className='nav_btn_home' onClick={handleRedirectDashboard} data-aos="slide-up" data-aos-duration="600">Get Started <img className='rocket' src={rocket} /> </button>
           {/* <div className="home_div" data-aos="fade-in">
             <p className="welcome_text">Unlocking Your Professional Journey Starts Here</p>
             <p className='about_text'>Are you ready to take the next big step in your career? Look no further! This is your comprehensive college placement support portal designed to empower you with the tools, resources, and guidance needed to navigate the exciting world of job placement.</p>
