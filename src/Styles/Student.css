@@ -59,7 +59,7 @@
   border: 4px solid #373737;
   position: absolute;
   top: 10px;
-  left: calc(100% -50%);
+  left: 32%;
 } 
 .card_student_name{
     font-size: 22px;
