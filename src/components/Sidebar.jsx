@@ -6,8 +6,8 @@ import company from '../Assets/company1.png';
 import dashboard from '../Assets/dashboard1.png';
 import student from '../Assets/profile.png';
 import logout from '../Assets/logout.png';
-
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import home from '../Assets/home.png';
+import {useNavigate} from 'react-router-dom';
 
 const Sidebar = ({param}) => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Sidebar = ({param}) => {
             </ul>
         </div>
         <div className='logout_div'>
-          <div className='logout_btn'><img src={logout} className='icon_img'/>Logout</div>
+          <button className='logout_btn' onClick={()=>{navigate('/')}}><img src={home} className='icon_img_home'/>Home</button>
         </div>
     </div>
   )

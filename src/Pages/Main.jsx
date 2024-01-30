@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Students.css';
+import '../Styles/Common.css';
 import Sidebar from '../components/Sidebar';
 
 const Students = () => {

@@ -49,7 +49,7 @@ const Home = () => {
 
   const navigate = useNavigate();
   const handleRedirectDashboard = () => {
-    navigate('/login');
+    navigate('/dashboard');
   }
   return (
     <>
