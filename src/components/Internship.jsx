@@ -1,31 +1,56 @@
-import React from 'react';
-import '../Styles/Common.css';
-import Sidebar from '../components/Sidebar';
-import user from '../Assets/user_profile.png';
-import search from '../Assets/search.png';
+import React, { useEffect, useState } from "react";
+import "../Styles/Common.css";
+import Sidebar from "../components/Sidebar";
+import search from "../Assets/search.png";
+import axios from "axios";
+import "../Styles/Internship.css";
+import InternshipList from "./InternshipList";
+import InternshipLoader from "./InternshipLoader";
+
+const URL =
+  "https://script.google.com/macros/s/AKfycbyQQE80wVyNKq8OMRigxzicAAVHrTUsCF0jXt4NOoPItsCmR9V9KPF5M0v_mxa1qQzd/exec";
+
 const Internship = () => {
-    return (
-        <div className='student_div'>
-            <Sidebar param={'internships'} />
-            <div className="student_div_center">
-                <div className="dashboard_top">
-                    <div className="search_bar_div">
-                        <input className='search_bar' type='text' placeholder='Seach Companies, Internships, Hackathons, or Students...' />
-                        <div className="search_icon_div">
-                            <img src={search} alt="pic" className="search_icon" />
-                        </div>
-                    </div>
-                    {/* <div className="profile_div">
+  const [internshipData, setInternshipData] = useState([]);
+  const getData = async () => {
+    const response = await axios.get(URL);
+    setInternshipData(response.data.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <div className="student_div">
+      <Sidebar param={"internships"} />
+      <div className="student_div_center">
+        <div className="dashboard_top">
+          <div className="search_bar_div">
+            <input
+              className="search_bar"
+              type="text"
+              placeholder="Seach Companies, Internships, Hackathons, or Students..."
+            />
+            <div className="search_icon_div">
+              <img src={search} alt="pic" className="search_icon" />
+            </div>
+          </div>
+          {/* <div className="profile_div">
                         <img src={user} alt="pic" className="profile_img" />
                         <p className="profile_name">Aman</p>
                     </div> */}
-                </div>
-                <div className="dashboard_bottom">
-                    <h1>Internships Section</h1>
-                </div>
-            </div>
         </div>
-    )
-}
+        <div className="internship_dashboard_bottom">
+          {internshipData.length > 0 ? (
+            <InternshipList internshipData={internshipData} />
+          ) : (
+            <InternshipLoader />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Internship;
