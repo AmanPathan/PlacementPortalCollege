@@ -1,0 +1,369 @@
+.profile_div {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #222222;
+  width: 100%;
+  height: 100vh;
+}
+.profile_div_center {
+  width: 80%;
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+  padding-top: 40px;
+}
+.profile_menu_div {
+  width: 20%;
+  height: 100vh;
+  background-color: #2d2d2d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.06) 0px 2px 4px -1px;
+  /* box-shadow: rgba(96, 96, 96, 0.1) 0px 4px 16px, rgba(52, 51, 51, 0.05) 0px 8px 32px; */
+}
+.profile_menu {
+  /* background-color: red; */
+  height: 100%;
+  width: 100%;
+}
+.student_img_div {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile_image {
+  width: 50%;
+  height: 80%;
+  border-radius: 50%;
+}
+.profile_intro {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  /* padding-left: 30px; */
+  /* background-color: pink; */
+}
+.social_links_div {
+  width: 90%;
+  height: 10%;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+.profile_name_student {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+.profile_job {
+  font-size: 20px;
+  font-weight: 700;
+  color: #c4c4c4;
+  margin: 0;
+}
+.profile_company {
+  font-size: 20px;
+  font-weight: 700;
+  color: #eb5757;
+  /* color: #91c95a; */
+  /* color: #f8b117; */
+  /* color: #4a71fc; */
+  margin: 0;
+}
+.profile_package {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c4c4c4;
+  margin: 0;
+}
+.profile_branch,
+.profile_batch {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f1faee;
+  margin: 0;
+}
+.social_icon {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 5px;
+  transition: 0.4s;
+}
+.social_icon:hover {
+  transform: translateY(-6px);
+}
+.social_link {
+  text-decoration: none;
+}
+.helper_menu {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 30px;
+}
+.helper_menu_ul {
+  margin-top: 20px;
+  height: 80%;
+  width: 90%;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+}
+.helper_menu_li {
+  padding-left: 30px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  cursor: pointer;
+}
+.helper_menu_li_active {
+  background-color: #4a71fc;
+}
+
+.profile_content {
+  width: 90%;
+  height: fit-content;
+  /* background-color: #fff; */
+}
+
+.about {
+  width: 100%;
+  height: fit-content;
+  /* background-color: black; */
+  margin: 0;
+  padding: 0;
+}
+.about_title {
+  font-size: 40px;
+  font-weight: 900;
+  /* color: #4a71fc; */
+  /* color: #91c95a; */
+  /* color: #eb5757; */
+  color: #f8b117;
+}
+.about_skills {
+  width: 100%;
+  /* background-color: green; */
+  height: fit-content;
+}
+.skill_div {
+  width: 100%;
+  height: fit-content;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #f8b117;
+}
+.skill_items {
+  background-color: #f1faee;
+  color: #222222;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  flex: 0 0 calc(15% - 20px);
+  max-width: calc(15% - 20px);
+  text-align: center;
+}
+
+.about_div_title {
+  font-size: 25px;
+  color: #c4c4c4;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.internships_div {
+  height: 20%;
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 2px solid rgba(248, 177, 23, 0.5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.internships_div1 {
+  border-bottom: 2px solid rgba(74, 113, 252, 0.5);
+}
+.experience_title {
+  margin-top: 10px;
+  color: #4a71fc;
+}
+.experience_card {
+  flex: 0 0 calc(50% - 20px);
+  max-width: calc(50% - 20px);
+  height: 150px;
+  background-color: #f1faee;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.experience_card:hover {
+  transform: scale(1.02);
+}
+.experience_card1 {
+  display: flex;
+  flex: 0 0 calc(45% - 20px);
+  max-width: calc(45% - 20px);
+  height: 150px;
+  justify-content: space-between;
+  background-color: #ffff;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  flex-direction: row;
+  transition: 0.3s;
+}
+.experience_card1:hover {
+  transform: scale(1.02);
+}
+.company_img_div {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.company_img_div1{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.company_img {
+  width: 80%;
+  height: 65%;
+}
+.experience_div_right {
+  width: 70%;
+  border-left: 3px solid #4a71fc;
+  margin-left: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.experience_div_right1 {
+  border-left: 3px solid #f8b117;
+}
+.internship_name {
+  font-size: 22px;
+  color: #2d2d2d;
+  margin: 0;
+  font-weight: 700;
+}
+.internship_company {
+  font-size: 18px;
+  color: #e63946;
+  margin: 0;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.job_time,
+.internship_duration,
+.internship_location {
+  font-size: 16px;
+  color: #293241;
+  margin: 0;
+  font-weight: 500;
+}
+.experience_card1 {
+  background-color: #f4f3ee;
+}
+
+.interview {
+  width: 100%;
+  height: fit-content;
+  /* background-color: black; */
+  margin: 0;
+  padding: 0;
+}
+
+.interview_center {
+  width: 100%;
+  height: 80%;
+  background-color: transparent;
+  padding-top: 10px;
+}
+.interview_section {
+  margin-top: 10px;
+  border-bottom: 2px solid rgba(145, 201, 90, 0.5);
+}
+.interview_title {
+  margin-top: 10px;
+  color: #91c95a;
+}
+.interview_format {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+.interview_format_details {
+  font-size: 20px;
+  font-weight: 600;
+  color: #c4c4c4;
+}
+.sub_heading {
+  color: #fff;
+}
+.bonus_section {
+  border-bottom: 2px solid rgba(248, 177, 23, 0.5);
+}
