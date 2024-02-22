@@ -80,6 +80,11 @@
     font-weight: 600;
     color: #463f3a;
     margin: 0;
+    width: 90%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card_student_skills{
     font-size: 18px;

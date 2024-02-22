@@ -8,7 +8,7 @@ import logo2 from '../Assets/virtusa.png';
 import logo3 from '../Assets/accenture.png';
 import logo4 from '../Assets/capgemini.png';
 import logo5 from '../Assets/emerson.png';
-import logo6 from '../Assets/godrej.png';
+// import logo6 from '../Assets/godrej.png';
 import logo7 from '../Assets/mahindra.png';
 import logo8 from '../Assets/ptc.png';
 import logo9 from '../Assets/tcs.png';
@@ -21,6 +21,11 @@ import Navbar from '../components/Navbar';
 import BarGraph from '../components/BarGraph';
 import { useNavigate } from "react-router-dom";
 import Footer from '../components/Footer';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import '../Styles/Hero.css';
+import college_img1 from '../Assets/college.jpg';
+import college_img2 from '../Assets/bg_college.jpg';
 
 const Home = () => {
 
@@ -34,9 +39,6 @@ const Home = () => {
     disableMutationObserver: false,
     debounceDelay: 50,
     throttleDelay: 99,
-
-
-
     offset: 120,
     delay: 0,
     duration: 400,
@@ -55,17 +57,25 @@ const Home = () => {
     <>
       <div className="home_container">
         <Navbar />
-        <div className="home_container_center">
-          <div className="college_name">
-            <h1 data-aos="zoom-in"><a href='https://www.dypcoeakurdi.ac.in/' target='_blank' className='collee_link'  >D Y Patil College of Engineering, Akurdi, Pune</a></h1>
-            <h2 className='welcome_text' data-aos="zoom-in">Your Gateway to Career Success!</h2>
-          </div>
-          <button className='nav_btn_home' onClick={handleRedirectDashboard} data-aos="slide-up" data-aos-duration="600">Get Started <img className='rocket' src={rocket} /> </button>
-          {/* <div className="home_div" data-aos="fade-in">
-            <p className="welcome_text">Unlocking Your Professional Journey Starts Here</p>
-            <p className='about_text'>Are you ready to take the next big step in your career? Look no further! This is your comprehensive college placement support portal designed to empower you with the tools, resources, and guidance needed to navigate the exciting world of job placement.</p>
-          </div> */}
+        <div className="container_home_center">
 
+          {/* <h2 className='placement_name'>Placement Portal</h2> */}
+          <Carousel autoPlay={true} swipeable={true} dynamicHeight={false} showThumbs={false} emulateTouch={true} infiniteLoop={true} transitionTime='2000' interval='3000' showArrows={false} showStatus={false}>
+            <div className='slider_div'>
+              <img className='slider_img' src={college_img1} />
+            </div>
+            <div className='slider_div'>
+              <img className='slider_img' src={college_img2} />
+            </div>
+            <div className='slider_div'>
+              <img className='slider_img' src={college_img1} />
+            </div>
+          </Carousel>
+          <div className="home_text_div">
+            <h1><a href='https://www.dypcoeakurdi.ac.in/' target='_blank' className='college_name'  >D Y Patil College of Engineering, Akurdi, Pune</a></h1>
+            <h2 className='dept_name'>Department of Information Technology</h2>
+            <button className='nav_btn_home' onClick={handleRedirectDashboard}  >Explore <img className='rocket' src={rocket} /> </button>
+          </div>
         </div>
       </div>
       <div className='home_container_center1'>
@@ -87,8 +97,8 @@ const Home = () => {
             <div className='image_wrapper'><img src={logo5} className='slider_img' /></div>
             <img src={logo_dots} className='slider_img1' />
 
-            <div className='image_wrapper'><img src={logo6} className='slider_img' /></div>
-            <img src={logo_dots} className='slider_img1' />
+            {/* <div className='image_wrapper'><img src={logo6} className='slider_img' /></div>
+            <img src={logo_dots} className='slider_img1' /> */}
 
             <div className='image_wrapper'><img src={logo7} className='slider_img' /></div>
             <img src={logo_dots} className='slider_img1' />
@@ -115,7 +125,7 @@ const Home = () => {
       <div className='graph_container'>
         <BarGraph />
       </div>
-      <Footer/>
+      <Footer />
     </>
 
   )

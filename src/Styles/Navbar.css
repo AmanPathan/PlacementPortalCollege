@@ -50,7 +50,7 @@
   cursor: pointer;
   padding: 5px;
   background-color: #4a71fc;
-  border-radius: 50px;
+  border-radius: 50%;
 }
 .dyp_name{
   display: flex;
@@ -65,6 +65,21 @@
   margin: 0;
   /* -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #4a71fc; */
+}
+.dyp_name1{
+  font-size: 22px;
+  font-weight:600;
+  cursor: pointer;
+  color: #31393c;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.compete_icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 6px;
 }
 @media screen and (max-width: 680px) {
   .dyp_name{

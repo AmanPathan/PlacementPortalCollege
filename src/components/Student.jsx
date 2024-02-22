@@ -18,12 +18,18 @@ const Student = () => {
 
   const fetchData = async () => {
     const res = await axios.get(URL);
-    setData(res.data.data);
+    // setData(res.data.data);
+    localStorage.setItem('data', JSON.stringify(res.data.data));
   }
 
   useEffect(() => {
     fetchData();
+    const data_items = JSON.parse(localStorage.getItem('data'));
+    if (data_items) {
+      setData(data_items);
+    }
   }, [])
+
   const navigate = useNavigate();
 
   const [q, setQ] = useState("");
@@ -68,22 +74,22 @@ const Student = () => {
                   // data.map((item, i) => {
                   const { UID, Name, Company, Jobprofile, Package, ProfileLink } = item;
                   const ID = UID;
-                  const profileImg = ProfileLink.slice(33,);
-                  console.log(ProfileLink);
+                  // const profileImg = ProfileLink.slice(33,);
+                  // console.log(ProfileLink);
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
-                      {/* {profileImg ?
+                      {/* {profileImg ? 
                         <img src={`https://drive.google.com/thumbnail?id=16xk84FyIZEDakibjwgNEppyfIVHxJCYg`}
                           className="card_img"  alt='Not Found'/>
                         :  
-                      }*/}
-                        <img src={dummy} alt="pic" className="card_img" />
+                      } */}
+                      <img src={dummy} alt="pic" className="card_img" />
                       <div className='card-details'>
-                        <p className="card_student_name">{item.Name}</p>
-                        <p className="card_company_name">{item.Company}</p>
-                        <p className="card_company_role"><span className='card_span'>Role:</span> {item.Jobprofile}</p>
-                        <p className="card_student_skills"><span className='card_span'>Package:</span> {item.Package} LPA</p>
+                        <p className="card_student_name">{Name}</p>
+                        <p className="card_company_name">{Company}</p>
+                        <p className="card_company_role"><span className='card_span'>Role:</span> {Jobprofile}</p>
+                        <p className="card_student_skills"><span className='card_span'>Package:</span> {Package} LPA</p>
                       </div>
                     </a>
                   )

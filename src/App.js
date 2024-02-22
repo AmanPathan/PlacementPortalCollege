@@ -22,6 +22,7 @@ function App() {
         <Route path='/hackathons' element={<Hackathon/>} />
         <Route path='/internships' element={<Internship/>} />
         <Route path='/students/:ID' element={<Profile/>} />
+        <Route path='*' element={<Home/>} />
       </Routes>
     </>
   );
