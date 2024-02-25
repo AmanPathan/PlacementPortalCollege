@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Home.css';
+import '../Styles/Hero.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Marquee from 'react-fast-marquee';
@@ -21,11 +22,8 @@ import Navbar from '../components/Navbar';
 import BarGraph from '../components/BarGraph';
 import { useNavigate } from "react-router-dom";
 import Footer from '../components/Footer';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import '../Styles/Hero.css';
-import college_img1 from '../Assets/college.jpg';
-import college_img2 from '../Assets/bg_college.jpg';
+import Slider from '../components/Slider';
+import college_img from '../Assets/college.jpg';
 
 const Home = () => {
 
@@ -60,28 +58,24 @@ const Home = () => {
         <div className="container_home_center">
 
           {/* <h2 className='placement_name'>Placement Portal</h2> */}
-          <Carousel autoPlay={true} swipeable={true} dynamicHeight={false} showThumbs={false} emulateTouch={true} infiniteLoop={true} transitionTime='2000' interval='3000' showArrows={false} showStatus={false}>
-            <div className='slider_div'>
-              <img className='slider_img' src={college_img1} />
-            </div>
-            <div className='slider_div'>
-              <img className='slider_img' src={college_img2} />
-            </div>
-            <div className='slider_div'>
-              <img className='slider_img' src={college_img1} />
-            </div>
-          </Carousel>
+          {/* <Slider/> */}
+
           <div className="home_text_div">
             <h1><a href='https://www.dypcoeakurdi.ac.in/' target='_blank' className='college_name'  >D Y Patil College of Engineering, Akurdi, Pune</a></h1>
             <h2 className='dept_name'>Department of Information Technology</h2>
-            <button className='nav_btn_home' onClick={handleRedirectDashboard}  >Explore <img className='rocket' src={rocket} /> </button>
           </div>
+
+          <div className='college_img_div'> 
+            <img src={college_img} className='college_div_img' />
+          </div>
+          
+          {/* <button className='nav_btn_home' onClick={handleRedirectDashboard}  >Explore <img className='rocket' src={rocket} /> </button> */}
         </div>
       </div>
       <div className='home_container_center1'>
         <div className="home_center1">
           <h2 className='recruiters_text' data-aos="slide-up" data-aos-duration="600"> Our Major Recruiters</h2>
-          <Marquee gradient gradientColor='#fff' gradientWidth={100} className='marquee' pauseOnHover>
+          <Marquee gradient gradientColor='#f3f4f5' gradientWidth={100} className='marquee' pauseOnHover>
             <div className='image_wrapper'><img src={logo1} className='slider_img' /></div>
             <img src={logo_dots} className='slider_img1' />
 

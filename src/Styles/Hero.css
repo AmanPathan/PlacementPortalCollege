@@ -4,14 +4,12 @@
   align-items: center;
   flex-direction: column;
   width: 85%;
-  height: 100%;
+  height: 85%;
+  /* background-color: #131032; */
+  background-color: transparent;
+  
 }
-.home_text_div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
+
 .slider_div {
   width: 100%;
   height: 350px;
@@ -36,11 +34,13 @@ h1 {
 .college_name {
   text-decoration: none;
   font-size: 36px;
-  color: #131032;
+  /* color: #131032; */
+  color: #ffffff;
   text-align: left;
 }
 .dept_name {
-  color: #4a71fc;
+  /* color: #4a71fc; */
+  color: #aba790;
   font-size: 2rem;
   text-align: left;
   font-weight: 700;
@@ -50,4 +50,30 @@ h1 {
   height: 10px !important;
   box-shadow: none !important;
   background-color: #4d4d52 !important;
+}
+
+.college_img_div {
+  margin: 0;
+  padding: 0;
+
+  width: 95%;
+  height: 60%;
+  border-radius: 15px;
+  /* background: linear-gradient(118deg, rgb(103, 226, 249) -4.85%, rgb(101, 199, 247) 67.67%, rgb(0, 82, 212) 140.18%);
+  box-shadow: rgba(50, 181, 246, 0.42) 0px 0px 40px 0px; */
+}
+
+.college_div_img{
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.home_text_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* height: 30%; */
 }
