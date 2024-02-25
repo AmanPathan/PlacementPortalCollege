@@ -1,21 +1,42 @@
 .home_container {
   /* background-color: #f8f9fa; */
-  /* background-color: #000000; */
+  background-color: #000000;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("../Assets/bg2.webp");
+
+  /* background-image: url("../Assets/bg2.webp");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+
+  /* background: rgb(34, 34, 34);
+  background: radial-gradient(
+    circle,
+    rgba(34, 34, 34, 1) 3%,
+    rgba(0, 0, 0, 1) 84%,
+    rgba(0, 0, 0, 1) 100%
+  ); */
+
+  /* background: rgb(95, 89, 89);
+  background: radial-gradient(
+    circle,
+    rgba(95, 89, 89, 1) 0%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(0, 0, 0, 1) 89%
+  ); */
+
+  background: radial-gradient(circle at 100% 110%, rgb(0, 0, 0) 0%, rgb(10, 10, 10) 15%,rgba(20,20,20) 15%, rgba(30,30,30) 25%,rgba(40,40,40) 25%, rgba(50,50,50) 35%, rgb(9, 10, 15) 35%, rgb(9, 10, 15) 100%);
+
 }
-.dept_name{
+.dept_name {
   font-size: 2.5em;
   font-weight: 800;
   color: #131031;
+  /* color: #ffffff; */
 }
 .home_container_center {
   width: 100%;
@@ -29,7 +50,8 @@
   font-family: "Montserrat", sans-serif;
 }
 .home_container_center1 {
-  background-color: #fff;
+  background-color: #f3f4f5;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +59,11 @@
   width: 100%;
   height: 50vh;
 }
+.marquee {
+  background-color: transparent;
+  height: 35%;
+}
+
 .home_center1 {
   display: flex;
   justify-content: space-evenly;
@@ -48,7 +75,7 @@
 .nav_btn_home {
   border: none;
   background-color: #4a71fc;
-  width: 200px;
+  width: 180px;
   height: 50px;
   border-radius: 50px;
   color: #fff;
@@ -60,7 +87,9 @@
   outline: none;
   cursor: pointer;
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 .rocket {
   width: 20px;
@@ -113,10 +142,6 @@ h1:hover {
   text-decoration: none !important;
   color: #000 !important;
 }
-.marquee {
-  background-color: #fff;
-  height: 35%;
-}
 .image_wrapper {
   margin: 0px 30px;
 }
@@ -151,6 +176,16 @@ h1:hover {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background-color: #000;
+
+  background: rgb(95, 89, 89);
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(95, 89, 89, 1) 0%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 1) 89%
+  );
+
 }
 .graph_row {
   width: 100%;
@@ -181,6 +216,7 @@ h1:hover {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  background-color: transparent;
 }
 .chart_container {
   border-radius: 10px;
@@ -237,10 +273,10 @@ h5 {
   }
 }
 @media screen and (max-width: 680px) {
-  .graph_container{
+  .graph_container {
     height: 230vh;
   }
-  .graph_row{
+  .graph_row {
     height: 100%;
     flex-direction: column;
   }
@@ -253,17 +289,17 @@ h5 {
   }
 }
 @media screen and (max-width: 426px) {
-  .graph_container{
+  .graph_container {
     height: 200vh;
   }
-  h1{
+  h1 {
     font-size: 25px;
   }
-  .welcome_text{
+  .welcome_text {
     font-size: 25px;
     text-align: center;
   }
-  .recruiters_text{
+  .recruiters_text {
     width: 100%;
     font-size: 20px;
     margin-left: 2%;
@@ -272,11 +308,11 @@ h5 {
     width: 120px;
     height: 70px;
   }
-  .slider_img1{
+  .slider_img1 {
     width: 40px;
     height: 10px;
   }
-  .home_center1{
+  .home_center1 {
     height: 80%;
   }
   .placement_text {
@@ -296,7 +332,7 @@ h5 {
     width: 320px !important;
     height: 200px !important;
   }
-  .placement_text{
+  .placement_text {
     width: 85%;
   }
 }
@@ -305,18 +341,18 @@ h5 {
     width: 280px !important;
     height: 180px !important;
   }
-  .placement_text{
+  .placement_text {
     width: 100%;
   }
-  
-  .recruiters_text{
-    width: 100% ;
+
+  .recruiters_text {
+    width: 100%;
     font-size: 18px;
     margin-left: 2%;
   }
 }
 
-.text{
+.text {
   color: #fff;
   font-size: 16px;
 }
