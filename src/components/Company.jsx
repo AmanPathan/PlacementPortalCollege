@@ -6,38 +6,6 @@ import search from "../Assets/search.png";
 import "../Styles/Company.css";
 
 const Company = () => {
-  const cardsData = [
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-    {
-      title: "Google",
-      content:
-        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
-    },
-  ];
   return (
     <div className="student_div">
       <Sidebar param={"companies"} />
@@ -59,14 +27,7 @@ const Company = () => {
           </div> */}
         </div>
         <div className="dashboard_bottom">
-          <div className="card-container">
-            {cardsData.map((card, index) => (
-              <div key={index} className="card">
-                <h2>{card.title}</h2>
-                <p>{card.content}</p>
-              </div>
-            ))}
-          </div>
+          Companies Section
         </div>
       </div>
     </div>

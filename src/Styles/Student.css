@@ -39,7 +39,7 @@
     text-decoration: none;
   border-color: #4a71fc;
   cursor: pointer;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 .card-details{
     display: flex;
@@ -65,15 +65,25 @@
     font-size: 22px;
     font-weight: 800;
     margin: 0;
+    width: 90%;
+    text-align: center;
     color: #4a71fc;
     /* color: #000; */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card_company_name{
     font-size: 20px;
     font-weight: 700;
     margin: 0;
     color: #373737;
-
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
 }
 .card_company_role{
     font-size: 18px;
@@ -91,7 +101,11 @@
     font-weight: 600;
     margin: 0;
     color: #463f3a;
-
+    width: 90%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card_span{
@@ -100,6 +114,7 @@
 }
 ::-webkit-scrollbar {
   width: 8px;
+  z-index: 100;
 }
 ::-webkit-scrollbar-track {
   background: #333333;
