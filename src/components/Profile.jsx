@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Profile = () => {
-    const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=pgmseIzjT4PAj2FEWGLJW-9DrenslsMa_1AYQHS3ZXl0O2vhiDWIr5hwv-P0Xiluw1--z5ziwoI4bC54bWOYqg260seK_DTTm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLJtlXQ5uYAyM5Z_q7a-UvitR5oZqSWz6Zt1jIFBehpe40AupPE06yd-3TwvNOMIR15UAjmzF2HZAj9WNsj8fMxcYB3PsuhdbNz9Jw9Md8uu&lib=MBkDDLo90xr7SpgmTZhNssTpwNphTLazC';
+    const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=vdLM88G_zIfPvuBh8cRHqQNt0TnC6P2afRnkpftFUMSSikomMrSsk2xQMqm96iV9bZ9sArtpNHHhQBqTahA5ySrHtvRiUKawm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNLg6C-wdWxIelZenqpq7d5PFu_vr4atKzLsIkgp9cdS4qjz2vPx2oRgfYe-be4lhXsaQYTbxVRJTHlF2Z9JUb5pjHEk4Kml1w&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
     const [data, setData] = useState([]);
     const [profile_data, setProfileData] = useState([]);
@@ -28,10 +28,10 @@ const Profile = () => {
 
     const { ID } = useParams();
     const filteredData = data.filter(item => { return item.UID === ID });
-    let UID, Email1, Name, Email2, Linkedin, Year, Company, Jobprofile, Package, Skills, InternshipName, InternshipRole, InternshipDuration, InternshipStipend, Leetcode, Github, CertificateName1, CertificateProvider1, CertificateYear1, CertificateYear2, CertificateProvider2, CertificateName2, Rounds, Duration, Difficulty, Behavioral, Fundamental, Experience, Coding, Topics, Advice, Mistakes, ProfileLink;
-    console.log(filteredData);
+    let UID, Email1, Name, Email2, Linkedin, Year, Company, Jobprofile, Package, Skills, InternshipName, InternshipRole, InternshipDuration, Leetcode, Github, CertificateName, CertificateProvider, CertificateYear, Rounds, Duration, Difficulty, Fundamental, Experience, Coding, Topics, Advice, Mistakes, ProfileLink;
+    
     if (filteredData.length > 0) {
-        ({ UID, Email1, Name, Email2, Linkedin, Year, Company, Jobprofile, Package, Skills, InternshipName, InternshipRole, InternshipDuration, InternshipStipend, Leetcode, Github, CertificateName1, CertificateProvider1, CertificateYear1, CertificateYear2, CertificateProvider2, CertificateName2, Rounds, Duration, Difficulty, Behavioral, Fundamental, Experience, Coding, Topics, Advice, Mistakes, ProfileLink } = filteredData[0]);
+        ({ UID, Email1, Name, Email2, Linkedin, Year, Company, Jobprofile, Package, Skills, InternshipName, InternshipRole, InternshipDuration, Leetcode, Github, CertificateName, CertificateProvider, CertificateYear, Rounds, Duration, Difficulty, Fundamental, Experience, Coding, Topics, Advice, Mistakes, ProfileLink } = filteredData[0]);
         Skills = Skills.split(',');
     }
 
@@ -71,6 +71,7 @@ const Profile = () => {
         setIsInterview(false);
         setIsActive('4');
     }
+    console.log(InternshipName);
     return (
         <>
             {filteredData.length > 0 ?
@@ -78,7 +79,7 @@ const Profile = () => {
                     <div className="profile_menu_div">
                         <div className="profile_menu">
                             <div className="student_img_div">
-                                <img src={profile_img} alt="" className="profile_image" />
+                                <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`} alt="" className="profile_image" />
                             </div>
                             <div className="profile_intro">
                                 <div className="helper_menu">
@@ -94,9 +95,9 @@ const Profile = () => {
                                 </ul>
                             </div>
                             <div className="social_links_div">
-                                <a href={Linkedin.length < 1?Linkedin:'/'} rel='noreferrer' target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
-                                <a href={Leetcode.length < 1?Leetcode:'/'} rel='noreferrer' target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
-                                <a href={Github.length < 1?Github:'/'}  rel='noreferrer'  target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
+                                <a href={Linkedin.length > 1 ? Linkedin : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
+                                <a href={Leetcode.length > 1 ? Leetcode : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
+                                <a href={Github.length > 1 ? Github : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
                                 <a href='https://mail.google.com/' rel='noreferrer' target='_blank' className='social_link'><img src={gmail} alt="" className="social_icon" /></a>
                             </div>
                         </div>
@@ -130,9 +131,9 @@ const Profile = () => {
                                         <div className="about_div_title">Certifications</div>
                                         <div className="internships_div1">
                                             <div className="certification_card">
-                                                <div className="certification_text">Certification Name : <p className="internship_name1"> {CertificateName1}</p></div>
-                                                <div className="certification_text">Certification Provider : <p className="internship_company1"> {CertificateProvider1}</p></div>
-                                                <div className="certification_text">Issued In : <p className="internship_name1"> {CertificateYear1}</p></div>
+                                                <div className="certification_text">Certification Name : <p className="internship_name1"> {CertificateName}</p></div>
+                                                <div className="certification_text">Certification Provider : <p className="internship_company1"> {CertificateProvider}</p></div>
+                                                <div className="certification_text">Issued In : <p className="internship_name1"> {CertificateYear}</p></div>
                                             </div>
                                         </div>
                                     </div>
@@ -140,7 +141,7 @@ const Profile = () => {
                             {isExperience ?
                                 <div className="about_skills">
                                     <div className="about_title experience_title">Internships</div>
-                                    <div className="internships_div internships_div1">
+                                    {/* <div className="internships_div internships_div1">
                                         <div className="experience_card1">
                                             <div className="company_img_div">
                                                 <img src={achievement} alt="" className="company_img" />
@@ -150,8 +151,15 @@ const Profile = () => {
                                                 <p className="internship_company">{InternshipRole}</p>
                                                 <p className="job_time">Stipend : {InternshipStipend} ₹</p>
                                                 <p className="internship_duration">Duration : {InternshipDuration} Months</p>
-                                                {/* <p className="internship_location">Location: Pune</p> */}
+                                                <p className="internship_location">Location: Pune</p>
                                             </div>
+                                        </div>
+                                    </div> */}
+                                    <div className="internships_div1">
+                                        <div className="certification_card">
+                                            <div className="certification_text">Internship Name : <p className="internship_name1"> {InternshipName}</p></div>
+                                            <div className="certification_text">Company :<p className="internship_company1"> {InternshipRole}</p></div>
+                                            <div className="certification_text">Duration : <p className="internship_name1"> {InternshipDuration}</p></div>
                                         </div>
                                     </div>
                                 </div> : ""}
@@ -175,10 +183,6 @@ const Profile = () => {
                                             <p className="interview_format">Coding Round</p>
                                             <p className="interview_format_details"><span className="sub_heading">Questions Asked : </span>{Coding}</p>
                                             <p className="interview_format_details"><span className="sub_heading">Topics of Coding Questions : </span> {Topics}</p>
-                                        </div>
-                                        <div className="interview_section">
-                                            <p className="interview_format">Behavioral Round</p>
-                                            <p className="interview_format_details"><span className="sub_heading">Experience : </span> {Behavioral}</p>
                                         </div>
                                     </div>
                                 </div> : ""}

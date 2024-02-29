@@ -9,7 +9,7 @@ import search from '../Assets/search.png';
 import icon1 from '../Assets/avatar.jpg';
 import dummy from '../Assets/dummy.jpg';
 
-const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=pgmseIzjT4PAj2FEWGLJW-9DrenslsMa_1AYQHS3ZXl0O2vhiDWIr5hwv-P0Xiluw1--z5ziwoI4bC54bWOYqg260seK_DTTm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLJtlXQ5uYAyM5Z_q7a-UvitR5oZqSWz6Zt1jIFBehpe40AupPE06yd-3TwvNOMIR15UAjmzF2HZAj9WNsj8fMxcYB3PsuhdbNz9Jw9Md8uu&lib=MBkDDLo90xr7SpgmTZhNssTpwNphTLazC';
+const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=vdLM88G_zIfPvuBh8cRHqQNt0TnC6P2afRnkpftFUMSSikomMrSsk2xQMqm96iV9bZ9sArtpNHHhQBqTahA5ySrHtvRiUKawm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNLg6C-wdWxIelZenqpq7d5PFu_vr4atKzLsIkgp9cdS4qjz2vPx2oRgfYe-be4lhXsaQYTbxVRJTHlF2Z9JUb5pjHEk4Kml1w&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
 
 const Student = () => {
@@ -27,6 +27,7 @@ const Student = () => {
     const data_items = JSON.parse(localStorage.getItem('data'));
     if (data_items) {
       setData(data_items);
+      console.log(data_items);
     }
   }, [])
 
@@ -35,7 +36,7 @@ const Student = () => {
   const [q, setQ] = useState("");
   let user_data = [];
 
-  const [searchParam] = useState(["Name", "Company", "Skills"]);
+  const [searchParam] = useState(["Name", "Company", "Skills","Year"]);
 
   function searchItem(items) {
     return items.filter((item) => {
@@ -74,17 +75,15 @@ const Student = () => {
                   // data.map((item, i) => {
                   const { UID, Name, Company, Jobprofile, Package, ProfileLink } = item;
                   const ID = UID;
-                  // const profileImg = ProfileLink.slice(33,);
-                  // console.log(ProfileLink);
+                  const profileImg = ProfileLink.slice(33,);
+                  console.log(Name,profileImg);
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
-                      {/* {profileImg ? 
-                        <img src={`https://drive.google.com/thumbnail?id=16xk84FyIZEDakibjwgNEppyfIVHxJCYg`}
+                      {profileImg ? 
+                        <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
                           className="card_img"  alt='Not Found'/>
-                        :  
-                      } */}
-                      <img src={dummy} alt="pic" className="card_img" />
+                        :  <img src={dummy} alt="pic" className="card_img" />}
                       <div className='card-details'>
                         <p className="card_student_name">{Name}</p>
                         <p className="card_company_name">{Company}</p>
