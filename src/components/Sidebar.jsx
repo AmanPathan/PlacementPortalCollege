@@ -3,7 +3,7 @@ import '../Styles/Sidebar.css';
 import hackathon from '../Assets/code.png';
 import internship from '../Assets/internship.png';
 import company from '../Assets/company1.png';
-import dashboard from '../Assets/dashboard1.png';
+import dashboard from '../Assets/dashboard2.png';
 import student from '../Assets/profile.png';
 import logout from '../Assets/logout.png';
 import home from '../Assets/home.png';

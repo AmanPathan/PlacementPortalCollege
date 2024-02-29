@@ -1,0 +1,39 @@
+.InternshipCard {
+  min-width: 30%;
+  min-height: 100%;
+  padding: 1rem;
+  background-color: #373737;
+  border-radius: 2rem;
+}
+
+.InternshipCard a {
+  text-decoration: none;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  color: #4d74ff;
+}
+
+.details ul {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.details li {
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  color: gold;
+  margin-bottom: 4px;
+}
+
+.details p {
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  margin-top: -4px;
+}
