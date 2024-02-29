@@ -1,17 +1,54 @@
-import React from 'react';
-import '../Styles/Common.css';
-import Sidebar from '../components/Sidebar';
-import user from '../Assets/user_profile.png';
-import search from '../Assets/search.png';
-const Company = () => {
+import React from "react";
+import "../Styles/Common.css";
+import Sidebar from "../components/Sidebar";
+import user from "../Assets/user_profile.png";
+import search from "../Assets/search.png";
+import "../Styles/Company.css";
 
+const Company = () => {
+  const cardsData = [
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+    {
+      title: "Google",
+      content:
+        "Google is an internet search engine. It uses a proprietary algorithm that's designed to retrieve and order search results to provide the most relevant and dependable sources of data possible.",
+    },
+  ];
   return (
-    <div className='student_div'>
-      <Sidebar param={'companies'} />
+    <div className="student_div">
+      <Sidebar param={"companies"} />
       <div className="student_div_center">
         <div className="dashboard_top">
           <div className="search_bar_div">
-            <input className='search_bar' type='text' placeholder='Seach Companies, Internships, Hackathons, or Students...' />
+            <input
+              className="search_bar"
+              type="text"
+              placeholder="Seach Companies, Internships, Hackathons, or Students..."
+            />
             <div className="search_icon_div">
               <img src={search} alt="pic" className="search_icon" />
             </div>
@@ -22,11 +59,18 @@ const Company = () => {
           </div> */}
         </div>
         <div className="dashboard_bottom">
-          <h1>Companies Section</h1>
+          <div className="card-container">
+            {cardsData.map((card, index) => (
+              <div key={index} className="card">
+                <h2>{card.title}</h2>
+                <p>{card.content}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Company;

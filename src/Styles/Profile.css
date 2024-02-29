@@ -72,7 +72,7 @@
   padding-right: 20px;
 }
 .profile_name_student {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 800;
   color: #fff;
   margin: 0;
@@ -82,6 +82,7 @@
   font-weight: 700;
   color: #c4c4c4;
   margin: 0;
+  margin-left: 10px;
 }
 .profile_company {
   font-size: 20px;
@@ -130,7 +131,7 @@
 }
 .helper_menu_ul {
   margin-top: 20px;
-  height: 80%;
+  height: 50%;
   width: 90%;
   list-style: none;
   font-size: 20px;
@@ -176,11 +177,14 @@
   /* color: #91c95a; */
   /* color: #eb5757; */
   color: #f8b117;
+
 }
 .about_skills {
   width: 100%;
   /* background-color: green; */
   height: fit-content;
+  border-bottom: 2px solid rgba(248, 177, 23,0.7);
+
 }
 .skill_div {
   width: 100%;
@@ -191,7 +195,6 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 2px solid #f8b117;
 }
 .skill_items {
   background-color: #f1faee;
@@ -203,25 +206,28 @@
   width: 100%;
   margin-bottom: 10px;
   margin-right: 10px;
-  flex: 0 0 calc(15% - 20px);
-  max-width: calc(15% - 20px);
+  flex: 0 0 calc(20% - 20px);
+  max-width: calc(20% - 20px);
   text-align: center;
 }
 
 .about_div_title {
   font-size: 25px;
-  color: #c4c4c4;
+  color: #91c95a;
   font-weight: 700;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .internships_div {
   height: 20%;
   width: 100%;
   margin-top: 20px;
-  border-bottom: 2px solid rgba(248, 177, 23, 0.5);
+  border-bottom: 2px solid rgba(248, 177, 23,0.7);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -229,11 +235,11 @@
   flex-direction: row;
 }
 .internships_div1 {
-  border-bottom: 2px solid rgba(74, 113, 252, 0.5);
+  border-bottom: 2px solid rgba(248, 177, 23,0.7);
 }
 .experience_title {
   margin-top: 10px;
-  color: #4a71fc;
+  color:   #f8b117;
 }
 .experience_card {
   flex: 0 0 calc(50% - 20px);
@@ -301,21 +307,44 @@
 .experience_div_right1 {
   border-left: 3px solid #f8b117;
 }
+.certification_card{
+  width: fit-content;
+}
+.certification_text{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  color: #c4c4c4;
+  font-weight: 800;
+}
 .internship_name {
   font-size: 22px;
   color: #2d2d2d;
   margin: 0;
   font-weight: 700;
 }
+.internship_name1 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  margin-left: 10px;
+}
 .internship_company {
   font-size: 18px;
   color: #e63946;
   margin: 0;
   font-weight: 700;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+}
+.internship_company1 {
+  font-size: 18px;
+  color: #e63946;
+  margin: 0;
+  font-weight: 700;
+  margin-left: 10px;
 }
 .job_time,
 .internship_duration,
@@ -345,20 +374,21 @@
 }
 .interview_section {
   margin-top: 10px;
-  border-bottom: 2px solid rgba(145, 201, 90, 0.5);
+  border-bottom: 2px solid #f8b117;
 }
 .interview_title {
   margin-top: 10px;
-  color: #91c95a;
+  color:#f8b117 ;
+  
 }
 .interview_format {
   font-size: 30px;
   font-weight: 600;
-  color: #fff;
+  color: #91c95a;
 }
 .interview_format_details {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 600; 
   color: #c4c4c4;
 }
 .sub_heading {

@@ -1,0 +1,36 @@
+/* CardContainer.css */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* width: 300px; */
+  /* height: 300px; */
+  background-color: #fff;
+  flex: 0 0 calc(30% - 20px);
+  max-width: calc(30% - 20px);
+
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+p {
+  color: #666;
+}

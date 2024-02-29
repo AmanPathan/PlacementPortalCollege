@@ -83,8 +83,6 @@ const Profile = () => {
                             <div className="profile_intro">
                                 <div className="helper_menu">
                                     <p className="profile_name_student">{Name}</p>
-                                    <p className="profile_job">{Jobprofile}</p>
-                                    <p className="profile_company">{Company} <span className='profile_package'>- {Package} LPA</span></p>
                                     <p className="profile_branch">B.E - IT</p>
                                     <p className="profile_batch">{Number(Year) - 4} - {Year} Batch</p>
                                 </div>
@@ -96,10 +94,10 @@ const Profile = () => {
                                 </ul>
                             </div>
                             <div className="social_links_div">
-                                <a href={Linkedin} target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
-                                <a href={Leetcode} target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
-                                <a href={Github} target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
-                                <a href='https://mail.google.com/' target='_blank' className='social_link'><img src={gmail} alt="" className="social_icon" /></a>
+                                <a href={Linkedin.length < 1?Linkedin:'/'} rel='noreferrer' target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
+                                <a href={Leetcode.length < 1?Leetcode:'/'} rel='noreferrer' target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
+                                <a href={Github.length < 1?Github:'/'}  rel='noreferrer'  target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
+                                <a href='https://mail.google.com/' rel='noreferrer' target='_blank' className='social_link'><img src={gmail} alt="" className="social_icon" /></a>
                             </div>
                         </div>
                     </div>
@@ -108,6 +106,15 @@ const Profile = () => {
                             {isAbout ?
                                 <div className="about">
                                     <h2 className="about_title">About</h2>
+                                    <div className="about_skills">
+                                        <div className="about_div_title">Company : <p className="profile_job">{Company}</p></div>
+                                    </div>
+                                    <div className="about_skills">
+                                        <div className="about_div_title">Job Description : <p className="profile_job">{Jobprofile}</p></div>
+                                    </div>
+                                    <div className="about_skills">
+                                        <div className="about_div_title">Package : <p className="profile_job">{Package} LPA</p></div>
+                                    </div>
                                     <div className="about_skills">
                                         <div className="about_div_title">Skills</div>
                                         <div className="skill_div">
@@ -121,26 +128,11 @@ const Profile = () => {
                                     </div>
                                     <div className="about_certifications">
                                         <div className="about_div_title">Certifications</div>
-                                        <div className="internships_div">
-                                            <div className="experience_card">
-                                                <div className="company_img_div1">
-                                                    <img src={certificate} alt="" className="company_img" />
-                                                </div>
-                                                <div className='experience_div_right experience_div_right1'>
-                                                    <p className="internship_name">{CertificateName1}</p>
-                                                    <p className="internship_company">{CertificateProvider1}</p>
-                                                    <p className="internship_duration">Issued {CertificateYear1}</p>
-                                                </div>
-                                            </div>
-                                            <div className="experience_card">
-                                                <div className="company_img_div1">
-                                                    <img src={certificate} alt="" className="company_img" />
-                                                </div>
-                                                <div className='experience_div_right experience_div_right1'>
-                                                    <p className="internship_name">{CertificateName2}</p>
-                                                    <p className="internship_company">{CertificateProvider2}</p>
-                                                    <p className="internship_duration">Issued {CertificateYear2}</p>
-                                                </div>
+                                        <div className="internships_div1">
+                                            <div className="certification_card">
+                                                <div className="certification_text">Certification Name : <p className="internship_name1"> {CertificateName1}</p></div>
+                                                <div className="certification_text">Certification Provider : <p className="internship_company1"> {CertificateProvider1}</p></div>
+                                                <div className="certification_text">Issued In : <p className="internship_name1"> {CertificateYear1}</p></div>
                                             </div>
                                         </div>
                                     </div>

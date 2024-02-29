@@ -27,6 +27,15 @@
   align-items: center;
   height: 100%;
 }
+
+.nav_div{
+  width: fit-content;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .nav_btn {
   border: none;
   width: 150px;
@@ -45,27 +54,48 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .navbar_user {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   padding: 5px;
-  background-color: #4a71fc;
-  border-radius: 50px;
+  /* filter: invert(); */
+  /* background-color: #4a71fc; */
+  /* border-radius: 10px; */
 }
 .dyp_name{
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  color: #31393c;
+  /* color: #31393c; */
+  /* color: #aba790; */
+  color: #aba790;
   /* font-family: "IBM Plex Serif", serif; */
-  font-weight: 800;
+  font-weight: 600;
   height: 100%;
   width: fit-content;
   margin: 0;
   /* -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #4a71fc; */
 }
+.dyp_name1{
+  font-size: 22px;
+  font-weight:600;
+  cursor: pointer;
+  /* color: #31393c; */
+  color: #aba790;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.compete_icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 6px;
+}
+
+
 @media screen and (max-width: 680px) {
   .dyp_name{
     font-size: 22px;
