@@ -1,0 +1,23 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper h1 {
+  text-align: left;
+  cursor: default;
+}
+
+.InternshipList {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1rem;
+  margin-top: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.InternshipList::-webkit-scrollbar {
+  height: 0;
+}
