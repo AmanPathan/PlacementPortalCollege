@@ -76,6 +76,7 @@
   font-weight: 800;
   color: #fff;
   margin: 0;
+  text-transform: capitalize;
 }
 .profile_job {
   font-size: 20px;
@@ -234,9 +235,6 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
-.internships_div1 {
-  border-bottom: 2px solid rgba(248, 177, 23,0.7);
-}
 .experience_title {
   margin-top: 10px;
   color:   #f8b117;
@@ -334,13 +332,13 @@
   margin-left: 10px;
 }
 .internship_company {
-  font-size: 18px;
+  font-size: 22px;
   color: #e63946;
   margin: 0;
   font-weight: 700;
 }
 .internship_company1 {
-  font-size: 18px;
+  font-size: 22px;
   color: #e63946;
   margin: 0;
   font-weight: 700;
@@ -374,7 +372,7 @@
 }
 .interview_section {
   margin-top: 10px;
-  border-bottom: 2px solid #f8b117;
+  border-bottom: 2px solid rgba(248, 177, 23,0.7);
 }
 .interview_title {
   margin-top: 10px;
