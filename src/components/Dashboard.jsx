@@ -22,11 +22,11 @@ import {
 
 function Dashboard({ data }) {
   const data1 = [
-    { name: "2018", value: 254 },
-    { name: "2019", value: 299 },
-    { name: "2020", value: 304 },
-    { name: "2021", value: 370 },
-    { name: "2022", value: 273 },
+    { name: "2019", value: 10 },
+    { name: "2020", value: 16.5 },
+    { name: "2021", value: 28.36 },
+    { name: "2022", value: 41.3 },
+    { name: "2023", value: 18.74 },
   ];
 
   const navigate = useNavigate();
@@ -45,16 +45,18 @@ function Dashboard({ data }) {
   let cnt = 0;
   let totalCnt = 0;
   data.forEach(ele => {
-    if(ele.Year == "2024"){
-      if(parseInt(ele.Package,10)!=0){
-        cnt+= parseInt(ele.Package,10);
+    if (ele.Year == "2024") {
+      if (parseInt(ele.Package, 10) != 0) {
+        cnt += parseInt(ele.Package, 10);
         totalCnt++;
       }
     }
   });
-  
-  let averagePackage = (cnt/totalCnt).toFixed(1);
 
+  let averagePackage = (cnt / totalCnt).toFixed(1);
+  const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
+    return <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>{`${value}`}</text>;
+  };
   return (
     <div className="student_div">
       <Sidebar param={"dashboard"} />
@@ -97,11 +99,11 @@ function Dashboard({ data }) {
             <div className="flex_item2">
               <h3 className="dashboard_text">Top 3 Packages (2024)</h3>
               {
-                data.slice(0,3).map((item, index) => {
-                  const { Name, Package, Company,UID } = item;
+                data.slice(0, 3).map((item, index) => {
+                  const { Name, Package, Company, UID } = item;
                   return (
                     <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
-                      <h3 className="highest_packagetext1">{Name.split(" ")[0]+" "+ Name.split(" ")[2]}<span className="highest_packagetext2">{Company}</span></h3>
+                      <h3 className="highest_packagetext1">{Name.split(" ")[0] + " " + Name.split(" ")[2]}<span className="highest_packagetext2">{Company}</span></h3>
                       <h3 className="highest_packagetext2 highest_packagetext3">{Package}LPA</h3>
                     </div>
                   )
@@ -114,10 +116,10 @@ function Dashboard({ data }) {
 
             </div>
             <div className="flex_item4">
-              <h5 className="dashboard_text">No of Company Visited</h5>
+              <h5 className="dashboard_text">Max Packages (LPA)</h5>
               <BarChart
-                width={800}
-                height={400}
+                width={600}
+                height={280}
                 data={data1}
                 margin={{
                   top: 5,
@@ -127,7 +129,7 @@ function Dashboard({ data }) {
               >
                 <XAxis dataKey="name" stroke="white" />
                 <YAxis stroke="white" />
-                <Bar dataKey="value" fill="#4971FC" barSize={60} />
+                <Bar dataKey="value" fill="#4971FC" barSize={60} label={renderCustomBarLabel} />
               </BarChart>
               <h5 className="dashboard_subtext">Academic Year</h5>
             </div>

@@ -11,6 +11,7 @@ import dummy from '../Assets/dummy.jpg';
 import InternshipLoader from './InternshipLoader';
 import '../Styles/InternshipLoader.css';
 import { useLocation } from 'react-router-dom'
+import sort from '../Assets/sort.png';
 
 const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J4YbeO4oJvIIZuxRal7VD349eP0phxSaaTmrPTMu4mqIz3ZbYFx93F9YiXBuiaFBL2yYPiu5UcihxZh54imjzKiMZaA2b5zVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCm_1kVhFXvHREi5EbChZ8bP0owEZxE-0PS3iwwP25utDTAz1RiYZaqp_4rA5QWQaSbggJk4C1L2JL1Hb041VPOQ7kzyZdT-5Q&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
@@ -33,20 +34,20 @@ const Student = (props) => {
   //     // console.log(data_items);
   //   }
   // }, [])
-  
+
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [q, setQ] = useState("");
-  
-  useEffect(()=>{
-    setQ(location.state?location.state.company_selected.data:"");
-  },[])
+
+  useEffect(() => {
+    setQ(location.state ? location.state.company_selected.data : "");
+  }, [])
 
 
   let user_data = [];
 
-  const [searchParam] = useState(["Name", "Company", "Skills","Year"]);
+  const [searchParam] = useState(["Name", "Company", "Skills", "Year"]);
 
   function searchItem(items) {
     return items.filter((item) => {
@@ -72,10 +73,10 @@ const Student = (props) => {
               <img src={search} alt="pic" className="search_icon" />
             </div>
           </div>
-          {/* <div className="profile_div">
-            <img src={user} alt="pic" className="profile_img" />
-            <p className="profile_name">Aman</p>
-          </div> */}
+          <div className='sort_div'>
+            <p className='sort_name'>sort</p>
+            <img src={sort} className='sort_img'/>
+          </div>
         </div>
         <div className="dashboard_bottom_student">
           <div className='center_div'>
@@ -91,10 +92,10 @@ const Student = (props) => {
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
-                      {profileImg ? 
+                      {profileImg ?
                         <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
-                          className="card_img"  alt='Not Found'/>
-                        :  <img src={dummy} alt="pic" className="card_img" />}
+                          className="card_img" alt='Not Found' />
+                        : <img src={dummy} alt="pic" className="card_img" />}
                       <div className='card-details'>
                         <p className="card_student_name">{Name}</p>
                         <p className="card_company_name">{Company}</p>
@@ -108,7 +109,7 @@ const Student = (props) => {
               </div>
               :
               <div className='loading_div'>
-                <InternshipLoader/>
+                <InternshipLoader />
               </div>
             }
           </div>

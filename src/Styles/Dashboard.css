@@ -1,7 +1,7 @@
 .dashboard_bottom_dashboard {
     width: 100%;
     height: fit-content;
-    padding:1% 2% 2% 2%;
+    padding:0% 2% 2% 0%;
     margin: auto;
     display: flex;
     flex-direction: column;  
@@ -14,7 +14,7 @@
     justify-content: space-between;
     width: 100%;
     margin-bottom: 1rem; 
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 .flex_item1{
     height: 220px;
@@ -22,6 +22,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+text{
+    fill:#fff;
 }
 .flex_item1-1{
     height: 47%;
@@ -63,13 +66,13 @@
 }
 .flex_item3{
     height: 350px;
-    width: 46%;
+    width: 50%;
     border-radius: 15px;
     background-color: #2d2d2d;
 }
 .flex_item4{
     height: 350px;
-    width: 52%;
+    width: 47%;
     border-radius: 15px;
     padding-top: 15px;
     background-color: #2d2d2d;
@@ -89,6 +92,8 @@
     color: #fff;
     font-size: 2rem;
     font-weight: 800; 
+    margin-top: -10px;
+    margin-bottom: 15px;
 }
 .dashboard_text{
     color: #fff;
