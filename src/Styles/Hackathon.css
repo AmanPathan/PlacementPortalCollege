@@ -1,0 +1,26 @@
+.dashboard_bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+.hackathon_title{
+    text-align: left;
+    width: 100%;
+    margin-left: 30px;
+}
+.hackthon_class{
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+.heading_{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    margin-left: 30px;
+}
+
+
+

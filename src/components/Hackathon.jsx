@@ -1,8 +1,13 @@
 import React from 'react';
 import '../Styles/Common.css';
 import Sidebar from './Sidebar';
+import HackathonCard from './HackathonCard';
 import user from '../Assets/user_profile.png';
 import search from '../Assets/search.png';
+import '../Styles/Hackathon.css';
+
+
+
 const Hackathon = () => {
 
   return (
@@ -22,8 +27,16 @@ const Hackathon = () => {
           </div> */}
         </div>
         <div className="dashboard_bottom">
-          <h1>Hackthons Section</h1>
+        {/* <div className='wraapper'> */}
+        <div className='hackathon_title'>
+          <h3 className='heading_ text-white font-extrabold'>Upcoming Hackathons...</h3>
         </div>
+        <div className="hackthon_class card-container flex flex-col flex-wrap">
+          <HackathonCard/>
+        </div>
+
+        </div>
+        {/* </div> */}
       </div>
     </div>
   )

@@ -8,6 +8,8 @@ import user from '../Assets/user_profile.png';
 import search from '../Assets/search.png';
 import icon1 from '../Assets/avatar.jpg';
 import dummy from '../Assets/dummy.jpg';
+import InternshipLoader from './InternshipLoader';
+import '../Styles/InternshipLoader.css';
 
 const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=vdLM88G_zIfPvuBh8cRHqQNt0TnC6P2afRnkpftFUMSSikomMrSsk2xQMqm96iV9bZ9sArtpNHHhQBqTahA5ySrHtvRiUKawm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNLg6C-wdWxIelZenqpq7d5PFu_vr4atKzLsIkgp9cdS4qjz2vPx2oRgfYe-be4lhXsaQYTbxVRJTHlF2Z9JUb5pjHEk4Kml1w&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
@@ -97,7 +99,7 @@ const Student = () => {
               </div>
               :
               <div className='loading_div'>
-                <div class="loader"></div>
+                <InternshipLoader/>
               </div>
             }
           </div>

@@ -1,0 +1,44 @@
+.card2{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+    font-weight: 700;
+}
+
+.register_btn{
+    border-radius: 20px;
+    margin-left: 25%;
+    border: none;
+    padding: 6px 12px 6px 12px ;
+}
+
+h4{
+    color: #4d74ff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.para_description{
+    font-size: 18px;
+    margin-top: 30px;
+    color: #fff;
+}
+
+.para_registration{
+    font-size: 18px;
+    color: #fff;
+
+}
+
+.para_registration span{
+    color: gold;
+    font-weight: 700;
+}

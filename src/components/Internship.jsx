@@ -24,7 +24,7 @@ const Internship = () => {
   }, []);
 
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["company"]);
+  const [searchParam] = useState(["company","location","role"]);
 
   function searchItem(items) {
     return items.filter((item) => {
@@ -45,7 +45,7 @@ const Internship = () => {
             <input
               className="search_bar"
               type="text"
-              placeholder="Search Companies, Internships, Hackathons, or Students..."
+              placeholder="Search Companies, Internships, Locations, or Role ..."
               value={q}
               onChange={(e) => {
                 setQ(e.target.value);
