@@ -45,7 +45,7 @@ const Internship = () => {
             <input
               className="search_bar"
               type="text"
-              placeholder="Seach Companies, Internships, Hackathons, or Students..."
+              placeholder="Search Companies, Internships, Hackathons, or Students..."
               value={q}
               onChange={(e) => {
                 setQ(e.target.value);

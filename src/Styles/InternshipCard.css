@@ -1,11 +1,12 @@
 .InternshipCard {
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: cal(33.33% - 20px);
+  flex: 0 0 calc(30.33% - 20px);
+  max-width: cal(30.33% - 20px);
   min-width: 280px;
   min-height: auto;
   padding: 1rem;
   background-color: #373737;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  /* justify-content: space-evenly; */
 }
 
 .InternshipCard a {

@@ -1,36 +1,81 @@
-.wrapper {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 1rem;
+.internship_loader {
   position: relative;
+  justify-self: center;
+  width: 40px;
+  height: 40px;
 }
 
-.wrapper h1 {
+.internship_loader span {
+  position: absolute;
+  left: 0;
+  right: 0;
   width: 100%;
-  padding-top: 0.5rem;
-  text-align: left;
-  cursor: default;
-  background-color: #222222;
-  position: -webkit-sticky;
-  position: sticky;
+  height: 100%;
+  /* border: 2px solid white; */
+}
+
+.internship_loader #one::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
-}
-.upcoming_internships_title{
-  font-size: 2rem;
-}
-.InternshipList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem 0;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(162, 162, 247);
+  opacity: 0.7;
+  animation: one 2s ease-in-out 0s infinite normal;
 }
 
-/* .InternshipList > * {
-  flex-grow: 1;
-} */
+@keyframes one {
+  25% {
+    height: 8px;
+    width: 8px;
+    transform: translateX(32px) rotate(-90deg);
+  }
+  50% {
+    height: 15px;
+    width: 15px;
+    transform: translate(25px, 25px) rotate(-180deg);
+  }
+  75% {
+    height: 8px;
+    width: 8px;
+    transform: translateY(32px) rotate(-270deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 
-.InternshipList::-webkit-scrollbar {
-  height: 0;
+.internship_loader #two::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(162, 162, 247);
+  opacity: 0.7;
+  animation: two 2s ease-in-out 0s infinite normal;
+}
+
+@keyframes two {
+  25% {
+    height: 8px;
+    width: 8px;
+    transform: translateX(-32px) rotate(-90deg);
+  }
+  50% {
+    height: 15px;
+    width: 15px;
+    transform: translate(-25px, -25px) rotate(-180deg);
+  }
+  75% {
+    height: 8px;
+    width: 8px;
+    transform: translateY(-32px) rotate(-270deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
