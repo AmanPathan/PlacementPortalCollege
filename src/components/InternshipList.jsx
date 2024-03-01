@@ -9,9 +9,6 @@ export default function InternshipList({ internshipData }) {
         {internshipData.map((data, index) => {
           return <InternshipCard data={data} key={index} />;
         })}
-        {internshipData.map((data, index) => {
-          return <InternshipCard data={data} key={index} />;
-        })}
       </div>
     </div>
   );
