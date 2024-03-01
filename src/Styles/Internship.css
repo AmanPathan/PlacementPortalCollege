@@ -1,0 +1,16 @@
+.internship_dashboard_bottom {
+  padding-left: 30px;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+  margin-left: 4rem;
+  color: white;
+}
+
+.wrapper h1 {
+  font-size: 2rem;
+  line-height: 4rem;
+}
