@@ -8,21 +8,11 @@ import "../Styles/InternshipList.css";
 import InternshipLoader from "./InternshipLoader";
 import InternshipCard from "./InternshipCard";
 
-const URL =
-  "https://script.google.com/macros/s/AKfycbyQQE80wVyNKq8OMRigxzicAAVHrTUsCF0jXt4NOoPItsCmR9V9KPF5M0v_mxa1qQzd/exec";
+// const URL1 =
+//   "https://script.google.com/macros/s/AKfycbyQQE80wVyNKq8OMRigxzicAAVHrTUsCF0jXt4NOoPItsCmR9V9KPF5M0v_mxa1qQzd/exec";
 
-const Internship = () => {
-  const [internshipData, setInternshipData] = useState([]);
-
-  const getData = async () => {
-    const response = await axios.get(URL);
-    setInternshipData(response.data.data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+const Internship = ({internshipData}) => {
+  console.log(internshipData);
   const [q, setQ] = useState("");
   const [searchParam] = useState(["company","location","role"]);
 

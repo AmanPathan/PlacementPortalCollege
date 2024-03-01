@@ -5,11 +5,11 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 const BarGraph = () => {
 
     const data1 = [
-        { name: "2018", value: 71 },
-        { name: "2019", value: 77 },
-        { name: "2020", value: 77 },
-        { name: "2021", value: 84 },
-        { name: "2022", value: 86 },
+        { name: "2019", value: 91 },
+        { name: "2020", value:  87},
+        { name: "2021", value:  82.4},
+        { name: "2022", value:  80},
+        { name: "2023", value:  80},
     ];
 
     const data2 = [
@@ -20,18 +20,18 @@ const BarGraph = () => {
         { name: "2022", value: 273 },
     ];
     const data3 = [
-        { name: "2018", value: 3.3 },
-        { name: "2019", value: 3.25 },
-        { name: "2020", value: 4 },
-        { name: "2021", value: 4.2 },
-        { name: "2022", value: 4.8 },
+        { name: "2019", value: 3.38 },
+        { name: "2020", value: 3.6 },
+        { name: "2021", value: 3.95 },
+        { name: "2022", value: 5.4 },
+        { name: "2023", value: 5 },
     ];
     const data4 = [
-        { name: "2018", value: 7 },
-        { name: "2019", value: 16 },
+        { name: "2019", value: 10 },
         { name: "2020", value: 16.5 },
-        { name: "2021", value: 28.39 },
+        { name: "2021", value: 28.36 },
         { name: "2022", value: 41.3 },
+        { name: "2023", value: 18.74 },
     ];
 
     const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {

@@ -20,7 +20,7 @@ import {
 } from "recharts";
 
 
-function Dashboard() {
+function Dashboard({ data }) {
   const data1 = [
     { name: "2018", value: 254 },
     { name: "2019", value: 299 },
@@ -28,8 +28,33 @@ function Dashboard() {
     { name: "2021", value: 370 },
     { name: "2022", value: 273 },
   ];
-  
+
   const navigate = useNavigate();
+
+  // sort data
+  data.sort((a, b) => {
+    if (a.Package > b.Package && (a.Year == 2024 && b.Year == 2024)) {
+      return -1;
+    } else if (a.Package < b.Package && (a.Year == 2024 && b.Year == 2024)) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
+  let cnt = 0;
+  let totalCnt = 0;
+  data.forEach(ele => {
+    if(ele.Year == "2024"){
+      if(parseInt(ele.Package,10)!=0){
+        cnt+= parseInt(ele.Package,10);
+        totalCnt++;
+      }
+    }
+  });
+  
+  let averagePackage = (cnt/totalCnt).toFixed(1);
+
   return (
     <div className="student_div">
       <Sidebar param={"dashboard"} />
@@ -44,7 +69,7 @@ function Dashboard() {
         </div> */}
         <div className="dashboard_bottom_dashboard">
           <div className="dashboard_heading">
-          <h2 className="dashboard_headingtext">Welcome To Dashboard</h2>
+            <h2 className="dashboard_headingtext">Welcome To Dashboard</h2>
           </div>
           <div className="flex_container1">
             <div className="flex_item1">
@@ -55,7 +80,7 @@ function Dashboard() {
                 </div>
                 <div className="flex_item">
                   <h3 className="dashboard_text">Placed Students</h3>
-                  <h2 id="placed_student">15</h2>
+                  <h2 id="placed_student">{data.length}</h2>
                 </div>
               </div>
               <div className="flex_item1-2">
@@ -65,24 +90,23 @@ function Dashboard() {
                 </div>
                 <div className="flex_item">
                   <h3 className="dashboard_text">Average Package</h3>
-                  <h2 id="avg_salary">7 LPA</h2>
+                  <h2 id="avg_salary">{averagePackage} LPA</h2>
                 </div>
               </div>
             </div>
             <div className="flex_item2">
-              <h3 className="dashboard_text">Top 3 Highest Package</h3>
-              <div className="highest_package" onClick={()=>{navigate("/students/")}}>
-                    <h3 className="highest_packagetext1">1.Shwetal Shete</h3>
-                    <h3 className="highest_packagetext2">Johnson controls - 8.5LPA</h3>
-              </div>
-              <div className="highest_package">
-                    <h3 className="highest_packagetext1">2.Rasika Ghadge</h3>
-                    <h3 className="highest_packagetext2">PTC Software - 8.5LPA</h3>
-              </div>
-              <div className="highest_package">
-                    <h3 className="highest_packagetext1">3.Prerana Kale</h3>
-                    <h3 className="highest_packagetext2">PTC Software- 8.23LPA</h3>
-              </div>
+              <h3 className="dashboard_text">Top 3 Packages (2024)</h3>
+              {
+                data.slice(0,3).map((item, index) => {
+                  const { Name, Package, Company,UID } = item;
+                  return (
+                    <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
+                      <h3 className="highest_packagetext1">{Name.split(" ")[0]+" "+ Name.split(" ")[2]}<span className="highest_packagetext2">{Company}</span></h3>
+                      <h3 className="highest_packagetext2 highest_packagetext3">{Package}LPA</h3>
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
           <div className="flex_container2">
@@ -102,7 +126,7 @@ function Dashboard() {
                 }}
               >
                 <XAxis dataKey="name" stroke="white" />
-                <YAxis stroke="white"/>
+                <YAxis stroke="white" />
                 <Bar dataKey="value" fill="#4971FC" barSize={60} />
               </BarChart>
               <h5 className="dashboard_subtext">Academic Year</h5>

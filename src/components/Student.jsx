@@ -10,32 +10,40 @@ import icon1 from '../Assets/avatar.jpg';
 import dummy from '../Assets/dummy.jpg';
 import InternshipLoader from './InternshipLoader';
 import '../Styles/InternshipLoader.css';
+import { useLocation } from 'react-router-dom'
 
-const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=vdLM88G_zIfPvuBh8cRHqQNt0TnC6P2afRnkpftFUMSSikomMrSsk2xQMqm96iV9bZ9sArtpNHHhQBqTahA5ySrHtvRiUKawm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNLg6C-wdWxIelZenqpq7d5PFu_vr4atKzLsIkgp9cdS4qjz2vPx2oRgfYe-be4lhXsaQYTbxVRJTHlF2Z9JUb5pjHEk4Kml1w&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
+const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J4YbeO4oJvIIZuxRal7VD349eP0phxSaaTmrPTMu4mqIz3ZbYFx93F9YiXBuiaFBL2yYPiu5UcihxZh54imjzKiMZaA2b5zVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCm_1kVhFXvHREi5EbChZ8bP0owEZxE-0PS3iwwP25utDTAz1RiYZaqp_4rA5QWQaSbggJk4C1L2JL1Hb041VPOQ7kzyZdT-5Q&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
 
-const Student = () => {
-  const [data, setData] = useState([]);
-  const [imageLoadError, setImageLoadError] = useState(true);
+const Student = (props) => {
+  // const [data, setData] = useState([]);
+  // const [imageLoadError, setImageLoadError] = useState(true);
 
-  const fetchData = async () => {
-    const res = await axios.get(URL);
-    // setData(res.data.data);
-    localStorage.setItem('data', JSON.stringify(res.data.data));
-  }
+  // const fetchData = async () => {
+  //   const res = await axios.get(URL);
+  //   // setData(res.data.data);
+  //   localStorage.setItem('data', JSON.stringify(res.data.data));
+  // }
 
-  useEffect(() => {
-    fetchData();
-    const data_items = JSON.parse(localStorage.getItem('data'));
-    if (data_items) {
-      setData(data_items);
-      // console.log(data_items);
-    }
-  }, [])
-
+  // useEffect(() => {
+  //   fetchData();
+  //   const data_items = JSON.parse(localStorage.getItem('data'));
+  //   if (data_items) {
+  //     setData(data_items);
+  //     // console.log(data_items);
+  //   }
+  // }, [])
+  
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   const [q, setQ] = useState("");
+  
+  useEffect(()=>{
+    setQ(location.state?location.state.company_selected.data:"");
+  },[])
+
+
   let user_data = [];
 
   const [searchParam] = useState(["Name", "Company", "Skills","Year"]);
@@ -52,6 +60,7 @@ const Student = () => {
       });
     });
   }
+
   return (
     <div className='student_div'>
       <Sidebar param={'students'} />
@@ -71,9 +80,9 @@ const Student = () => {
         <div className="dashboard_bottom_student">
           <div className='center_div'>
 
-            {data.length > 0 ?
+            {props.data.length > 0 ?
               <div className="cards">
-                {searchItem(data).map((item, i) => {
+                {searchItem(props.data).map((item, i) => {
                   // data.map((item, i) => {
                   const { UID, Name, Company, Jobprofile, Package, ProfileLink } = item;
                   const ID = UID;
