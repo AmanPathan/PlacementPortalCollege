@@ -3,7 +3,7 @@
   min-height: 100%;
   padding: 1rem;
   background-color: #373737;
-  border-radius: 2rem;
+  border-radius: 12px;
 }
 
 .InternshipCard a {
@@ -11,7 +11,7 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   text-align: center;
   color: #4d74ff;

@@ -27,7 +27,7 @@ const Student = () => {
     const data_items = JSON.parse(localStorage.getItem('data'));
     if (data_items) {
       setData(data_items);
-      console.log(data_items);
+      // console.log(data_items);
     }
   }, [])
 
@@ -76,7 +76,7 @@ const Student = () => {
                   const { UID, Name, Company, Jobprofile, Package, ProfileLink } = item;
                   const ID = UID;
                   const profileImg = ProfileLink.slice(33,);
-                  console.log(Name,profileImg);
+                  // console.log(Name,profileImg);
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
