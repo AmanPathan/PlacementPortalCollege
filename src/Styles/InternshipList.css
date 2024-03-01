@@ -1,24 +1,35 @@
 .wrapper {
   height: 100%;
   width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
 }
 
 .wrapper h1 {
+  width: 100%;
+  padding-top: 0.5rem;
   text-align: left;
   cursor: default;
+  background-color: #222222;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
 }
 .upcoming_internships_title{
   font-size: 2rem;
 }
 .InternshipList {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
-  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0;
 }
+
+/* .InternshipList > * {
+  flex-grow: 1;
+} */
 
 .InternshipList::-webkit-scrollbar {
   height: 0;

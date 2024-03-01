@@ -4,14 +4,16 @@ import Sidebar from "../components/Sidebar";
 import search from "../Assets/search.png";
 import axios from "axios";
 import "../Styles/Internship.css";
-import InternshipList from "./InternshipList";
+import "../Styles/InternshipList.css";
 import InternshipLoader from "./InternshipLoader";
+import InternshipCard from "./InternshipCard";
 
 const URL =
   "https://script.google.com/macros/s/AKfycbyQQE80wVyNKq8OMRigxzicAAVHrTUsCF0jXt4NOoPItsCmR9V9KPF5M0v_mxa1qQzd/exec";
 
 const Internship = () => {
   const [internshipData, setInternshipData] = useState([]);
+
   const getData = async () => {
     const response = await axios.get(URL);
     setInternshipData(response.data.data);
@@ -20,6 +22,19 @@ const Internship = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  const [q, setQ] = useState("");
+  const [searchParam] = useState(["company"]);
+
+  function searchItem(items) {
+    return items.filter((item) => {
+      return searchParam.some((newItem) => {
+        return (
+          item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+        );
+      });
+    });
+  }
 
   return (
     <div className="student_div">
@@ -31,9 +46,18 @@ const Internship = () => {
               className="search_bar"
               type="text"
               placeholder="Seach Companies, Internships, Hackathons, or Students..."
+              value={q}
+              onChange={(e) => {
+                setQ(e.target.value);
+              }}
             />
             <div className="search_icon_div">
-              <img src={search} alt="pic" className="search_icon" />
+              <img
+                src={search}
+                alt="pic"
+                className="search_icon"
+                style={{ cursor: "pointer" }}
+              />
             </div>
           </div>
           {/* <div className="profile_div">
@@ -43,8 +67,17 @@ const Internship = () => {
         </div>
         <div className="internship_dashboard_bottom">
           {internshipData.length > 0 ? (
-            <InternshipList internshipData={internshipData} />
+            <div className="wrapper">
+              <h1>Upcoming Internships...</h1>
+              <div className="InternshipList">
+                {/* {internshipData.map((data, index) => { */}
+                {searchItem(internshipData).map((item, i) => {
+                  return <InternshipCard data={item} key={i} />;
+                })}
+              </div>
+            </div>
           ) : (
+            // <InternshipList internshipData={internshipData} />
             <InternshipLoader />
           )}
         </div>
