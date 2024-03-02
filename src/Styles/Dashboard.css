@@ -23,9 +23,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
-text{
+/* text{
     fill:#fff;
-}
+} */
 .flex_item1-1{
     height: 47%;
     width: 100%;

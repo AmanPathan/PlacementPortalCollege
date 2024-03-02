@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Common.css";
 import "../Styles/Dashboard.css";
 import Sidebar from "../components/Sidebar";
@@ -33,13 +33,14 @@ function Dashboard({ data }) {
 
   let cnt = 0;
   let totalCnt = 0;
-  let averagePackage = 0;
+  const [averagePackage,setAverage] = useState(0);
+
   const PreProcessing = ()=>{
     // sort data
     data.sort((a, b) => {
-      if (a.Package > b.Package && (a.Year == 2024 && b.Year == 2024)) {
+      if (a.Package > b.Package && (a.Year == "2024" && b.Year == "2024")) {
         return -1;
-      } else if (a.Package < b.Package && (a.Year == 2024 && b.Year == 2024)) {
+      } else if (a.Package < b.Package && (a.Year == "2024" && b.Year == "2024")) {
         return 1;
       } else {
         return 0;
@@ -48,19 +49,19 @@ function Dashboard({ data }) {
 
     data.forEach(ele => {
       if (ele.Year == "2024") {
-        if (parseInt(ele.Package, 10) != 0) {
+        if (parseInt(ele.Package, 10)!= 0) {
           cnt += parseInt(ele.Package, 10);
           totalCnt++;
         }
       }
     });
 
-    averagePackage = (cnt / totalCnt).toFixed(1);
+    setAverage((cnt / totalCnt).toFixed(1));
   }
 
   useEffect(()=>{
     PreProcessing();
-  },[])
+  })
 
 
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
