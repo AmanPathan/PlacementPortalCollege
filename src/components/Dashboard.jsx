@@ -18,6 +18,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { Colors } from "chart.js";
 
 
 function Dashboard({ data }) {
@@ -65,7 +66,7 @@ function Dashboard({ data }) {
 
 
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
-    return <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>{`${value}`}</text>;
+    return <text x={x + width / 2} y={y} fill="#fff" textAnchor="middle" dy={-6}>{`${value}`}</text>;
   };
   return (
     <div className="student_div">
@@ -126,12 +127,14 @@ function Dashboard({ data }) {
             <div className="flex_item3">
 
             </div>
-            <div className="flex_item4">
+            <div className="flex_item4" >
               <h5 className="dashboard_text">Max Packages (LPA)</h5>
               <BarChart
+                stroke="white"
                 width={600}
                 height={280}
                 data={data1}
+                
                 margin={{
                   top: 5,
                   right: 30,
@@ -153,9 +156,3 @@ function Dashboard({ data }) {
 
 export default Dashboard;
 
-{
-  /* <div className="profile_div">
-            <img src={user} alt="pic" className="profile_img" />
-            <p className="profile_name">Aman</p>
-          </div> */
-}
