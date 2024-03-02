@@ -1,30 +1,98 @@
-.dashboard_top{
+.dashboard_top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
 }
-.sort_div{
+.sort_div {
   background-color: #373737;
   border-radius: 10px;
   color: #dfe9ff;
-  width: 10%;
-  height: 45px;
+  width: 110px;
+  text-transform: capitalize;
+  height: 40px;
   margin-right: 4%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   cursor: pointer;
+  position: relative;
 }
-.sort_name{
-  font-size: 1.5rem;
+.sort_dropdown {
+  background-color: #373737;
+  border-radius: 10px;
+  width: 150px;
+  height: 120px;
+  position: absolute;
+  right: 0;
+  top: 42px;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 1;
+  /* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.sort_dropdown_none {
+  display: none;
+}
+.sort_dropdown_none .sort_ul {
+  display: none;
+}
+.sort_ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+.sort_li {
+  font-size: 1rem;
+  font-weight: 600;
+  width: 90%;
+  border-bottom: 1px solid #dfe9ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.sort_li:nth-child(3) {
+  border-bottom: none;
+}
+.sort_name {
+  font-size: 1.2rem;
   margin: 0;
 }
-.sort_img{
-  width: 20px;
-  height: 20px;
+.sort_img {
+  width: 15px;
+  height: 15px;
   filter: invert();
+}
+.check_img {
+  width: 15px;
+  height: 15px;
+}
+.check_img_none {
+  width: 0;
+  height: 0;
+}
+.year_field{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: fit-content;
+  padding: 1%;
+  color: #373737;
+  border-radius: 8px;
+  background-color: #91c95a;
 }
 .dashboard_bottom_student {
   width: 100%;
@@ -61,24 +129,26 @@
   position: relative;
   text-decoration: none;
   margin-right: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .card:hover {
-    text-decoration: none;
+  text-decoration: none;
   border-color: #4a71fc;
   cursor: pointer;
   transform: scale(1.03);
 }
-.card-details{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #dfe9ff;
-    height: 180px;
-    width: 100%;
-    margin-top: 20%;
-    border-radius: 10px;
-    padding-top: 50px;
+.card-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dfe9ff;
+  height: 180px;
+  width: 100%;
+  margin-top: 20%;
+  border-radius: 10px;
+  padding-top: 50px;
 }
 .card_img {
   width: 120px;
@@ -89,57 +159,60 @@
   top: 10px;
   left: 32%;
   background-color: #dfe9ff;
-} 
-.card_student_name{
-    font-size: 22px;
-    font-weight: 800;
-    margin: 0;
-    width: 90%;
-    text-align: center;
-    color: #4a71fc;
-    /* color: #000; */
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
-.card_company_name{
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0;
-    color: #373737;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 90%;
+.card_student_name {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  width: 90%;
+  text-align: center;
+  color: #4a71fc;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
 }
-.card_company_role{
-    font-size: 18px;
-    font-weight: 600;
-    color: #463f3a;
-    margin: 0;
-    width: 90%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.card_company_name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #373737;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
 }
-.card_student_skills{
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-    color: #463f3a;
-    width: 90%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.card_company_role {
+  font-size: 18px;
+  font-weight: 600;
+  color: #463f3a;
+  margin: 0;
+  width: 90%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.card_span{
-    color: #333333;
-    font-weight: 700;
+.card_student_skills {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  color: #463f3a;
+  width: 90%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.no_Records{
+  color: #eb5757;
+  font-weight: 700;
+}
+.card_span {
+  color: #333333;
+  font-weight: 700;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -167,28 +240,33 @@
     max-width: 100%;
   }
 }
-.loading_div{
+.loading_div {
   width: 100%;
   height: 100vh;
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 /* HTML: <div class="loader"></div> */
 .loader {
   width: fit-content;
-  font-weight:800;
+  font-weight: 800;
   font-family: monospace;
   font-size: 35px;
   color: #0000;
-  background: linear-gradient(90deg,#4a71fc calc(50% + 0.5ch),#fff 0) right/calc(200% + 1ch) 100%;
+  background: linear-gradient(90deg, #4a71fc calc(50% + 0.5ch), #fff 0)
+    right/calc(200% + 1ch) 100%;
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   animation: l7 2s infinite steps(11);
 }
 .loader:before {
-  content:"Loading..."
+  content: "Loading...";
 }
-@keyframes l7 {to{background-position: left}}
+@keyframes l7 {
+  to {
+    background-position: left;
+  }
+}

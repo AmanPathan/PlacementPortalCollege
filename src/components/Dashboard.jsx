@@ -72,6 +72,7 @@ function Dashboard({ data }) {
         <div className="dashboard_bottom_dashboard">
           <div className="dashboard_heading">
             <h2 className="dashboard_headingtext">Welcome To Dashboard</h2>
+            {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
           </div>
           <div className="flex_container1">
             <div className="flex_item1">
@@ -104,7 +105,7 @@ function Dashboard({ data }) {
                   return (
                     <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
                       <h3 className="highest_packagetext1">{Name.split(" ")[0] + " " + Name.split(" ")[2]}<span className="highest_packagetext2">{Company}</span></h3>
-                      <h3 className="highest_packagetext2 highest_packagetext3">{Package}LPA</h3>
+                      <h3 className="highest_packagetext2 highest_packagetext3">{Package} LPA</h3>
                     </div>
                   )
                 })

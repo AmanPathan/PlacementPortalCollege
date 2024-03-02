@@ -80,7 +80,7 @@ const Company = () => {
       "name":"Virtusa",
     },
     {
-      "icon":"https://mma.prnewswire.com/media/1228338/Accolite_Logo_Grey.jpg?p=twitter",
+      "icon":"https://asset.brandfetch.io/idKqBXb52x/idcZMhBFzK.png",
       "name":"Accolite Digital",
     },
     {

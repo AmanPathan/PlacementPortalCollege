@@ -84,9 +84,9 @@ const Profile = ({data}) => {
                                 </ul>
                             </div>
                             <div className="social_links_div">
-                                <a href={Linkedin.length > 1 ? Linkedin : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
-                                <a href={Leetcode.length > 1 ? Leetcode : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
-                                <a href={Github.length > 1 ? Github : '/'} rel='noreferrer' target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
+                                <a href={Linkedin.length > 5 ? Linkedin : '/students'} rel='noreferrer' target='_blank' className='social_link'><img src={linkedin} alt="" className="social_icon" /></a>
+                                <a href={Leetcode.length > 5 ? Leetcode : '/students'} rel='noreferrer' target='_blank' className='social_link'><img src={leetcode} alt="" className="social_icon" /></a>
+                                <a href={Github.length > 5 ? Github : '/students'} rel='noreferrer' target='_blank' className='social_link'><img src={github} alt="" className="social_icon" /></a>
                                 <a href='https://mail.google.com/' rel='noreferrer' target='_blank' className='social_link'><img src={gmail} alt="" className="social_icon" /></a>
                             </div>
                         </div>
