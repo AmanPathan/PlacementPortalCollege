@@ -33,6 +33,7 @@ function Dashboard({ data }) {
 
   let cnt = 0;
   let totalCnt = 0;
+  const [totalStudents,setTotalStudents] = useState(0);
   const [averagePackage,setAverage] = useState(0);
 
   const PreProcessing = ()=>{
@@ -57,6 +58,7 @@ function Dashboard({ data }) {
     });
 
     setAverage((cnt / totalCnt).toFixed(1));
+    setTotalStudents(totalCnt);
   }
 
   useEffect(()=>{
@@ -93,7 +95,7 @@ function Dashboard({ data }) {
                 </div>
                 <div className="flex_item">
                   <h3 className="dashboard_text">Placed Students</h3>
-                  <h2 id="placed_student">{data.length}</h2>
+                  <h2 id="placed_student">{totalStudents}</h2>
                 </div>
               </div>
               <div className="flex_item1-2">

@@ -61,9 +61,9 @@ const Student = ({data}) => {
   }
   const SortbyYear = () => {
     data.sort((a, b) => {
-      if (a.Year < b.Year) {
+      if (a.Year > b.Year) {
         return -1;
-      } else if (a.Year > b.Year) {
+      } else if (a.Year < b.Year) {
         return 1;
       } else {
         return 0;
@@ -130,7 +130,7 @@ const Student = ({data}) => {
             <div className={showDiv ? 'sort_dropdown' : 'sort_dropdown_none'}>
               <ul className='sort_ul'>
                 <li className='sort_li' onClick={(e) => { handleCheck1(1) }}>Name &#42779;<img src={check} className={check_flag === 1 ? 'check_img' : "check_img_none"} /></li>
-                <li className='sort_li' onClick={(e) => { handleCheck2(2) }}>Year &#42779;<img src={check} className={check_flag === 2 ? 'check_img' : "check_img_none"} /></li>
+                <li className='sort_li' onClick={(e) => { handleCheck2(2) }}>Year &#42780;<img src={check} className={check_flag === 2 ? 'check_img' : "check_img_none"} /></li>
                 <li className='sort_li' onClick={(e) => { handleCheck3(3) }}>Package &#42780;<img src={check} className={check_flag === 3 ? 'check_img' : "check_img_none"} /></li>
               </ul>
             </div>
