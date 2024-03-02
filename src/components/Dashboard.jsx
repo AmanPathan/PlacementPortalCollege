@@ -65,7 +65,7 @@ function Dashboard({ data }) {
 
 
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
-    return <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>{`${value}`}</text>;
+    return <text x={x + width / 2} y={y} fill="#ffffff" textAnchor="middle" dy={-6}>{`${value}`}</text>;
   };
   return (
     <div className="student_div">
