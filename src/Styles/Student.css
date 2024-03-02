@@ -86,13 +86,16 @@
 }
 .year_field{
   position: absolute;
-  left: 5px;
-  top: 5px;
+  /* left: 5px; */
+  top: -30px;  
+  opacity: 50%;
   width: fit-content;
-  padding: 1%;
-  color: #373737;
+  /* padding: 1%; */
+  color: #fff;
   border-radius: 8px;
-  background-color: #91c95a;
+  z-index: -10;
+  font-size: 90px;
+  /* background-color: #  91c95a; */
 }
 .dashboard_bottom_student {
   width: 100%;
@@ -198,13 +201,15 @@
 .card_student_skills {
   font-size: 18px;
   font-weight: 800;
-  margin: 0;
+  margin-left: 10px;
   color: #463f3a;
   width: 90%;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; 
+  /* display: flex;
+  justify-content: space-between; */
 }
 .no_Records{
   color: #eb5757;
