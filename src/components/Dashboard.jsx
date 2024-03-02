@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Styles/Common.css";
 import "../Styles/Dashboard.css";
 import Sidebar from "../components/Sidebar";
@@ -31,29 +31,38 @@ function Dashboard({ data }) {
 
   const navigate = useNavigate();
 
-  // sort data
-  data.sort((a, b) => {
-    if (a.Package > b.Package && (a.Year == 2024 && b.Year == 2024)) {
-      return -1;
-    } else if (a.Package < b.Package && (a.Year == 2024 && b.Year == 2024)) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-
   let cnt = 0;
   let totalCnt = 0;
-  data.forEach(ele => {
-    if (ele.Year == "2024") {
-      if (parseInt(ele.Package, 10) != 0) {
-        cnt += parseInt(ele.Package, 10);
-        totalCnt++;
+  let averagePackage = 0;
+  const PreProcessing = ()=>{
+    // sort data
+    data.sort((a, b) => {
+      if (a.Package > b.Package && (a.Year == 2024 && b.Year == 2024)) {
+        return -1;
+      } else if (a.Package < b.Package && (a.Year == 2024 && b.Year == 2024)) {
+        return 1;
+      } else {
+        return 0;
       }
-    }
-  });
+    });
 
-  let averagePackage = (cnt / totalCnt).toFixed(1);
+    data.forEach(ele => {
+      if (ele.Year == "2024") {
+        if (parseInt(ele.Package, 10) != 0) {
+          cnt += parseInt(ele.Package, 10);
+          totalCnt++;
+        }
+      }
+    });
+
+    averagePackage = (cnt / totalCnt).toFixed(1);
+  }
+
+  useEffect(()=>{
+    PreProcessing();
+  },[])
+
+
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
     return <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>{`${value}`}</text>;
   };
