@@ -160,7 +160,7 @@ const Student = ({data}) => {
                         <p className="card_student_name">{Name}</p>
                         <p className="card_company_name">{Company}</p>
                         <p className="card_company_role"><span className='card_span'>Role:</span> {Jobprofile}</p>
-                        <p className="card_student_skills"><span className='card_span'>Package:</span> {Package} LPA</p>
+                        <p className="card_student_skills"><span className='card_span'>Package : {Package} LPA </span> </p>
                       </div>
                     </a>
                   )

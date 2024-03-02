@@ -130,7 +130,6 @@ function Dashboard({ data }) {
             <div className="flex_item4" >
               <h5 className="dashboard_text">Max Packages (LPA)</h5>
               <BarChart
-                stroke="white"
                 width={600}
                 height={280}
                 data={data1}
