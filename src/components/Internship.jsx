@@ -7,12 +7,13 @@ import "../Styles/Internship.css";
 import "../Styles/InternshipList.css";
 import InternshipLoader from "./InternshipLoader";
 import InternshipCard from "./InternshipCard";
+import check from '../Assets/check.png';
+import sort from '../Assets/filter.png';
 
 // const URL1 =
 //   "https://script.google.com/macros/s/AKfycbyQQE80wVyNKq8OMRigxzicAAVHrTUsCF0jXt4NOoPItsCmR9V9KPF5M0v_mxa1qQzd/exec";
 
 const Internship = ({internshipData}) => {
-  console.log(internshipData);
   const [q, setQ] = useState("");
   const [searchParam] = useState(["company","location","role"]);
 
@@ -25,6 +26,9 @@ const Internship = ({internshipData}) => {
       });
     });
   }
+
+  const [check_flag, setCheckFlag] = useState(3);
+  const [showDiv, setShowDiv] = useState(false);
 
   return (
     <div className="student_div">
@@ -50,10 +54,16 @@ const Internship = ({internshipData}) => {
               />
             </div>
           </div>
-          {/* <div className="profile_div">
-                        <img src={user} alt="pic" className="profile_img" />
-                        <p className="profile_name">Aman</p>
-                    </div> */}
+          <div className='filter_div'>
+            <p className='sort_name' onClick={() => { setShowDiv(!showDiv) }}>filter by</p>
+            <img src={sort} className='sort_img' onClick={() => { setShowDiv(!showDiv) }} />
+            <div className={showDiv ? 'sort_dropdown' : 'sort_dropdown_none'}>
+              <ul className='sort_ul'>
+                <li className='sort_li'>Latest &#42779;<img src={check} className={check_flag === 1 ? 'check_img' : "check_img_none"} /></li>
+                <li className='sort_li'>Date &#42779;<img src={check} className={check_flag === 2 ? 'check_img' : "check_img_none"} /></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="internship_dashboard_bottom">
           {internshipData.length > 0 ? (

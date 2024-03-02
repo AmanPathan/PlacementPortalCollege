@@ -40,7 +40,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 50px;
-  z-index: 5;
+  z-index: -1;
 }
 .search_bar {
   border: none;

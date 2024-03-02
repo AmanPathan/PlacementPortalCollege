@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-content: center;
 }
-.sort_div {
+.sort_div,.filter_div {
   background-color: #373737;
   border-radius: 10px;
   color: #dfe9ff;
@@ -18,6 +18,11 @@
   justify-content: space-evenly;
   cursor: pointer;
   position: relative;
+}
+.filter_div{
+  width: 130px;
+  font-weight: 500;
+  z-index: 5;
 }
 .sort_dropdown {
   background-color: #373737;
@@ -39,6 +44,9 @@
 }
 .sort_dropdown_none {
   display: none;
+}
+.sort_ul{
+  z-index: 10;
 }
 .sort_dropdown_none .sort_ul {
   display: none;

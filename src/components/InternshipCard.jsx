@@ -16,7 +16,7 @@ export default function InternshipCard({ data, index }) {
             <li>
               Location: <p>{data.location}</p>
             </li>
-            <li style={{ color: "red" }}>
+            <li style={{ color: "#eb5757" }}>
               Deadline: <p>{data.deadline}</p>
             </li>
           </ul>
