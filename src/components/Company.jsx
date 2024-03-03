@@ -80,6 +80,10 @@ const Company = () => {
       "name":"Virtusa",
     },
     {
+      "icon":"https://www.datanami.com/wp-content/uploads/2014/05/couchbase_Logo.png",
+      "name":"Couchbase",
+    },
+    {
       "icon":"https://asset.brandfetch.io/idKqBXb52x/idcZMhBFzK.png",
       "name":"Accolite Digital",
     },

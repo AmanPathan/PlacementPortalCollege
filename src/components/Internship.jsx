@@ -16,7 +16,7 @@ import sort from '../Assets/filter.png';
 const Internship = ({internshipData}) => {
   const [q, setQ] = useState("");
   const [searchParam] = useState(["company","location","role"]);
-
+ 
   function searchItem(items) {
     return items.filter((item) => {
       return searchParam.some((newItem) => {
