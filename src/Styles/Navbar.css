@@ -66,29 +66,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  /* color: #31393c; */
-  /* color: #aba790; */
+  font-size: 2rem;
   color: #aba790;
-  /* font-family: "IBM Plex Serif", serif; */
-  font-weight: 600;
-  height: 100%;
+  font-weight: 800;
   width: fit-content;
   margin: 0;
-  /* -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #4a71fc; */
+
 }
+.dyp_name1:before{  
+  content: '';
+  background: linear-gradient(45deg, #ff7300, #f8b117, #91c95a, #4a71fc, #7a00ff,  #b21013);
+  position: absolute;
+  z-index: -1;
+    filter: blur(5px);
+    width: calc(98%);
+    height: calc(85%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 50px;
+
+}
+
+.dyp_name1:hover:before {
+  opacity: 1;
+}
+.dyp_name1:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  background: #111;
+  border-radius: 50px;
+}
+
 .dyp_name1{
-  font-size: 22px;
+  padding: 5%;
+  font-size: 1.4rem;
   font-weight:600;
+  z-index: 0;
+  border-radius: 50px;
+  position: relative;
+  background: #090a0f;
   cursor: pointer;
-  /* color: #31393c; */
-  color: #aba790;
-  margin: 0;
+  border: none;
+  outline: none;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .compete_icon{
   width: 25px;
   height: 25px;

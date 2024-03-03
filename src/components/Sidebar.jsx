@@ -7,6 +7,7 @@ import dashboard from '../Assets/dashboard2.png';
 import student from '../Assets/profile.png';
 import logout from '../Assets/logout.png';
 import home from '../Assets/home.png';
+import logo from '../Assets/dyp_logo.png';
 import {useNavigate} from 'react-router-dom';
 
 const Sidebar = ({param}) => {
@@ -14,7 +15,8 @@ const Sidebar = ({param}) => {
   return (
     <div className='sidebar'>
         <div className="sidebar_name">
-            <p className='sidebar_college_name'>DYPCOE, Akurdi</p>
+            {/* <p className='sidebar_college_name'>DYPCOE,  Akurdi</p> */}
+            <p className='sidebar_college_name'  onClick={()=>{navigate('/dashboard')}}><img src={logo} alt="" /></p>
         </div>
         <div className="sidebar_menu">
             <ul className='sidebar_ul'>

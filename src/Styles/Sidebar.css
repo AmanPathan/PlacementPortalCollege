@@ -13,24 +13,24 @@
   z-index: 7;
 }
 .sidebar_name {
-  width: 90%;
-  height: 20%;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  padding-left: 20px;
+  width: 100%;
+  height: 25%;
   border-bottom: 2px solid #f8b117;
 }
 .sidebar_college_name {
-  font-size: 25px;
-  color: #fff;
-  font-weight: 700;
-  margin: 0;
-  line-height: 25px;
-  flex-wrap: wrap;
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.sidebar_college_name:hover{
+  cursor: pointer;
+}
+.sidebar_college_name>img{
+  height: 60%;
+  width: 100%;
+  border-radius: 10px;
 }
 .sidebar_menu {
   width: 100%;

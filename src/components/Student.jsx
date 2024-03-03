@@ -18,24 +18,6 @@ const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J
 
 
 const Student = ({data}) => {
-  // const [data, setData] = useState([]);
-  // const [imageLoadError, setImageLoadError] = useState(true);
-
-  // const fetchData = async () => {
-  //   const res = await axios.get(URL);
-  //   // setData(res.data.data);
-  //   localStorage.setItem('data', JSON.stringify(res.data.data));
-  // }
-
-  // useEffect(() => {
-  //   fetchData();
-  //   const data_items = JSON.parse(localStorage.getItem('data'));
-  //   if (data_items) {
-  //     setData(data_items);
-  //     // console.log(data_items);
-  //   }
-  // }, [])
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -151,7 +133,6 @@ const Student = ({data}) => {
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
-                      <p className='year_field'>{Year}</p>
                       {profileImg ?
                         <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
                         className="card_img" alt='Not Found' />

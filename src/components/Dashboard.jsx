@@ -26,7 +26,7 @@ function Dashboard({ data }) {
     { name: "2019", value: 10 },
     { name: "2020", value: 16.5 },
     { name: "2021", value: 28.36 },
-    { name: "2022", value: 41.3 },
+    { name: "2022", value: 28 },
     { name: "2023", value: 18.74 },
   ];
 
@@ -40,9 +40,9 @@ function Dashboard({ data }) {
   const PreProcessing = ()=>{
     // sort data
     data.sort((a, b) => {
-      if (a.Package > b.Package && (a.Year == "2024" && b.Year == "2024")) {
+      if (a.Package > b.Package ) {
         return -1;
-      } else if (a.Package < b.Package && (a.Year == "2024" && b.Year == "2024")) {
+      } else if (a.Package < b.Package) {
         return 1;
       } else {
         return 0;
@@ -110,14 +110,14 @@ function Dashboard({ data }) {
                 </div>
               </div>
             </div>
-            <div className="flex_item2">
+            <div className="flex_item2 ">
               <h3 className="dashboard_text">Top 3 Packages (2024)</h3>
               {
-                data.slice(0, 3).map((item, index) => {
+                data.slice(0,3 ).map((item, index) => {
                   const { Name, Package, Company, UID } = item;
                   return (
-                    <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
-                      <h3 className="highest_packagetext1">{Name.split(" ")[0] + " " + Name.split(" ")[2]}<span className="highest_packagetext2">{Company}</span></h3>
+                    <div key={index} className="highest_package draw meet" onClick={() => { navigate(`/students/${UID}`) }}>
+                      <h3 className="highest_packagetext1">{Name.split(" ")[0] + " " + Name.split(" ")[Name.split(" ").length-1]}<span className="highest_packagetext2">{Company}</span></h3>
                       <h3 className="highest_packagetext2 highest_packagetext3">{Package} LPA</h3>
                     </div>
                   )

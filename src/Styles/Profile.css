@@ -52,7 +52,7 @@
 }
 .profile_intro {
   width: 100%;
-  height: 65%;
+  height: 55%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -157,6 +157,28 @@
 .helper_menu_li_active {
   background-color: #4a71fc;
 }
+.return_student{
+  display: flex; 
+  align-items: center;
+  justify-content: left ;
+  /* justify-content:left;  */
+  
+  width: 100%;
+  height: 8%;
+  
+}
+.return_student:hover{
+  cursor: pointer;
+}
+.return_student>img{
+  height: 50%;
+  width: 20%;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  fill: white;
+  background-color: white;
+}
+
 
 .profile_content {
   width: 90%;
