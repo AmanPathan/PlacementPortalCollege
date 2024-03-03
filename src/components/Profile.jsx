@@ -9,7 +9,7 @@ import achievement from "../Assets/achievement.png";
 import certificate from "../Assets/certificate.png";
 import { useNavigate } from "react-router-dom";
 import "../Styles/InternshipLoader.css";
-import arrow from '../Assets/arrow.svg';
+import arrow from '../Assets/arrow1.png';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import InternshipLoader from "./InternshipLoader";
@@ -132,10 +132,7 @@ const Profile = ({ data }) => {
                 <img src={arrow} alt="" />
               </div>
               <div className="student_img_div">
-                <img
-                  src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(
-                    33
-                  )}`}
+                <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33)}`}
                   alt=""
                   className="profile_image"
                 />

@@ -7,8 +7,20 @@
   background-color: #373737;
   border-radius: 1rem;
   /* justify-content: space-evenly; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  text-decoration: none;
+  position: relative;
 }
-
+.InternshipCard:hover{
+  text-decoration: none;
+  border-color: #4a71fc;
+  cursor: pointer;
+  transform: scale(1.03);
+}
 .InternshipCard a {
   text-decoration: none;
 }
@@ -32,6 +44,10 @@
   position: relative;
   color: #f8b117;
   margin-bottom: 4px;
+  text-transform: capitalize;
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; */
 }
 
 .details p {
@@ -40,4 +56,26 @@
   margin: 0;
   margin-top: -4px;
   font-size: 1.3rem;
+  /* margin-left: 10px; */
+}
+.status_div{
+  position: absolute;
+  margin: 0;
+  padding: 1%;
+  top: 12px;
+  left: -1.5px;  
+  width:80px;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.status_open{
+  color: #91ca5a;
+}
+.status_closed{
+  color: #eb5757;
 }

@@ -1,12 +1,12 @@
 .wrapper {
   height: 100%;
   width: 100%;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   position: relative;
 }
 
 .wrapper h1 {
-  width: 80%;
+  width: 100%;
   padding-top: 0.5rem;
   text-align: left;
   cursor: default;
@@ -15,7 +15,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 3;
 }
 
 .InternshipList {

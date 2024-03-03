@@ -17,7 +17,7 @@ import check from '../Assets/check.png';
 const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J4YbeO4oJvIIZuxRal7VD349eP0phxSaaTmrPTMu4mqIz3ZbYFx93F9YiXBuiaFBL2yYPiu5UcihxZh54imjzKiMZaA2b5zVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCm_1kVhFXvHREi5EbChZ8bP0owEZxE-0PS3iwwP25utDTAz1RiYZaqp_4rA5QWQaSbggJk4C1L2JL1Hb041VPOQ7kzyZdT-5Q&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
 
-const Student = ({data}) => {
+const Student = ({ data }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -99,8 +99,8 @@ const Student = ({data}) => {
     <div className='student_div'>
       <Sidebar param={'students'} />
       <div className="student_div_center">
-        <div className="dashboard_top">
-          <div className="search_bar_div">
+        <div className="dashboard_top student_searchbar">
+          <div className="search_bar_div ">
             <input className='search_bar' onChange={(e) => setQ(e.target.value)} value={q} type='text' placeholder='Seach Companies, Students, or Skills ...' />
             <div className="search_icon_div">
               <img src={search} alt="pic" className="search_icon" />
@@ -120,12 +120,12 @@ const Student = ({data}) => {
         </div>
         <div className="dashboard_bottom_student">
           <div className='center_div'>
-          
+
             {data.length > 0 ?
               <div className="cards">
-                {searchItem(data).length>0?searchItem(data).map((item, i) => {
+                {searchItem(data).length > 0 ? searchItem(data).map((item, i) => {
                   // data.map((item, i) => {
-                    console.log(searchItem(data));
+                  console.log(searchItem(data));
                   const { UID, Name, Company, Jobprofile, Package, ProfileLink, Year } = item;
                   const ID = UID;
                   const profileImg = ProfileLink.slice(33,);
@@ -133,9 +133,10 @@ const Student = ({data}) => {
                   return (
                     // <div className="card" key={i} onClick={()=>{navigate(`/students/${item.name}`)}}>
                     <a href={`/students/${ID}`} className="card" key={i}>
+                      <div className='year_field'>{Year}</div>
                       {profileImg ?
                         <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
-                        className="card_img" alt='Not Found' />
+                          className="card_img" alt='Not Found' />
                         : <img src={dummy} alt="pic" className="card_img" />}
                       <div className='card-details'>
                         <p className="card_student_name">{Name}</p>
@@ -146,8 +147,11 @@ const Student = ({data}) => {
                     </a>
                   )
                 })
-              :<h3 className='no_Records'>No Records Found!</h3> 
-              }
+                  :
+                  <div className='center_div'>
+                    <h3 className='no_Records'>No Records Found!</h3>
+                  </div>
+                }
               </div>
               :
               <div className='loading_div'>

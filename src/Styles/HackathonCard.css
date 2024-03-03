@@ -4,19 +4,44 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    flex: 0 0 calc(32% - 20px);
+    max-width: cal(32% - 20px);
+    min-width: 260px;
+    min-height: auto;
+    padding: 1rem;
+    background-color: #373737;
+    border-radius: 1rem;
+    /* justify-content: space-evenly; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    text-decoration: none;
+    position: relative;
+    margin-right: 20px;
 }
-
+.card2:hover{
+    text-decoration: none;
+    border-color: #4a71fc;
+    cursor: pointer;
+    transform: scale(1.03);
+}
 a{
     text-decoration: none;
-    color: red;
-    font-weight: 700;
+    font-weight: 500;
+    color: #f4f4f4;
 }
 
 .register_btn{
     border-radius: 20px;
-    margin-left: 25%;
+    margin-left: 30%;
+    margin-top: 20px;
     border: none;
-    padding: 6px 12px 6px 12px ;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 14px 8px 14px ;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 h4{
@@ -28,17 +53,25 @@ h4{
 
 .para_description{
     font-size: 18px;
+    text-align: justify;
     margin-top: 30px;
     color: #fff;
+    font-weight: 500;
 }
 
 .para_registration{
     font-size: 18px;
     color: #fff;
-
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0;
 }
 
-.para_registration span{
-    color: gold;
+.hackathon_date{
+    color: #f8b217;
+    font-weight: 700;
+}
+.mode{
+    color: #eb5757;
     font-weight: 700;
 }

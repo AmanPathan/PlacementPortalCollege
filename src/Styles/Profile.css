@@ -39,7 +39,7 @@
   width: 100%;
 }
 .student_img_div {
-  width: 100%;
+  width: 95%;
   height: 25%;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  /* padding-left: 30px; */
+  /* padding-left:20px; */
   /* background-color: pink; */
 }
 .social_links_div {
@@ -68,8 +68,8 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  padding-left: 30px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 10px;
 }
 .profile_name_student {
   font-size: 25px;
@@ -128,7 +128,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 .helper_menu_ul {
   margin-top: 20px;
@@ -145,7 +145,7 @@
   padding: 0;
 }
 .helper_menu_li {
-  padding-left: 30px;
+  padding-left: 40px;
   width: 100%;
   height: 40px;
   display: flex;
@@ -160,23 +160,21 @@
 .return_student{
   display: flex; 
   align-items: center;
-  justify-content: left ;
-  /* justify-content:left;  */
-  
-  width: 100%;
-  height: 8%;
-  
+  justify-content: center ;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 20%;
+  height: 5%;
+  margin-top: 15px;
+  background-color: #f1faee;
 }
 .return_student:hover{
   cursor: pointer;
 }
 .return_student>img{
-  height: 50%;
-  width: 20%;
-  border-top-right-radius: 60px;
-  border-bottom-right-radius: 60px;
+  height: 80%;
+  width: 60%;
   fill: white;
-  background-color: white;
 }
 
 

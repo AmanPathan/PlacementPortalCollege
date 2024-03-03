@@ -1,8 +1,6 @@
-.dashboard_top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
+.student_searchbar{
+  background-color: #222222;
+  position: sticky;
 }
 .sort_div,.filter_div {
   background-color: #373737;
@@ -42,6 +40,9 @@
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+.filter_dropdown{
+  height: 80px;
+}
 .sort_dropdown_none {
   display: none;
 }
@@ -75,9 +76,13 @@
 .sort_li:nth-child(3) {
   border-bottom: none;
 }
+.filter_li:nth-child(2){
+  border-bottom: none;
+}
 .sort_name {
   font-size: 1.2rem;
   margin: 0;
+  font-weight:600;
 }
 .sort_img {
   width: 15px;
@@ -94,21 +99,23 @@
 }
 .year_field{
   position: absolute;
-  /* left: 5px; */
-  top: -30px;  
-  opacity: 50%;
-  width: fit-content;
-  /* padding: 1%; */
-  color: #fff;
-  border-radius: 8px;
-  z-index: -10;
-  font-size: 90px;
-  /* background-color: #  91c95a; */
+  top: 10px;
+  left:-1px;  
+  width:55px;
+  height: 30px;
+  color: #aca9a9;
+  /* z-index: -10; */
+  font-size: 1rem;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .dashboard_bottom_student {
   width: 100%;
   height: fit-content;
-  margin-top: 5%;
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
