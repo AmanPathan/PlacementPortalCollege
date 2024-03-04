@@ -144,7 +144,7 @@ const Company = () => {
       "name":"Juspay",
     },
     {
-      "icon":"https://cdn-sharing.adobecc.com/composite/component/id/urn:aaid:sc:AP:dcf4a69d-60fe-46bd-a3ed-ac66cac84baa?component_id=4f1f7e11-1464-4084-97dd-2dc3f04d5cc0&revision=9bdf26a5-1895-4198-9ef4-44347fe23868&api_key=projectx_webapp&access_token=1709514597_urn%3Aaaid%3Asc%3AAP%3Adcf4a69d-60fe-46bd-a3ed-ac66cac84baa%3Bpublic_96f6a58fabcf7c067e4b0d44977205c96eb9c718",
+      "icon":"https://i.ibb.co/pb73c0r/zensoft.png",
       "name":"Zensoft Services",
     },
     {
