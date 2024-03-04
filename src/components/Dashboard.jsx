@@ -64,7 +64,7 @@ function Dashboard({ data }) {
 
   useEffect(()=>{
     PreProcessing();
-  })
+  },[])
 
 
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
