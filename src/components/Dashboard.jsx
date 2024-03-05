@@ -36,6 +36,7 @@ function Dashboard({ data }) {
   let totalCnt = 0;
   const [totalStudents,setTotalStudents] = useState(0);
   const [averagePackage,setAverage] = useState(0);
+  const [status,setStatus] = useState(true);
 
   const PreProcessing = ()=>{
     // sort data
@@ -63,8 +64,14 @@ function Dashboard({ data }) {
   }
 
   useEffect(()=>{
-    PreProcessing();
-  },[])
+    if(data){
+      PreProcessing();
+      setStatus(false);
+    }
+    else{
+      setStatus(true);
+    }
+  },[data])
 
 
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {

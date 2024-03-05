@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Analytics } from "@vercel/analytics/react";
+import Demo from './components/Demo';
 
 function App() {
   const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=tXsxy2-hvwS31b9L92CSnDeGZ3CQNEO1_cFYVGNdKtG1HykzKeta_lLa9mHb-85_JxKtFebIpJoA88k0vdcRRVxmI6kAp73Cm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnDogGNI0BST8X8uIhrZnF83Ik5WQDsaGUaum2emq-uGmqccBjBlNb7s21kAJBYLaTnc6Qy88gk9KnUhosPf3J4uecRGUEjL7GQ&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
@@ -45,7 +46,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={<Demo/>} />
         <Route path='/dypcoe' element={<Forms/>} />
         <Route path='/dashboard' element={<Dashboard data={studentsData}/>} />
         <Route path='/students' element={<Student data={studentsData}/>} />
