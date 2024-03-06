@@ -64,7 +64,7 @@
   padding: 1%;
   top: 12px;
   left: -1.5px;  
-  width:80px;
+  width:75px;
   height: 30px;
   font-size: 1rem;
   font-weight: 600;
@@ -72,6 +72,10 @@
   background-color: rgba(0, 0, 0, 0.3);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
 }
 .status_open{
   color: #91ca5a;

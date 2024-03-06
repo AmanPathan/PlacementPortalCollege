@@ -162,11 +162,11 @@
   align-items: center;
   justify-content: center ;
   border-radius: 50%;
-  width: 15%;
-  height: 6%;
+  width: 12%;
+  height: 5%;
   margin-top: 15px;
   background-color: #91c95a;
-  margin-left: 10px;
+  margin-left: 15px;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
 }
@@ -178,7 +178,7 @@
 }
 
 .return_student:hover{
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 

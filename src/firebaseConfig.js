@@ -4,7 +4,7 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
     apiKey: "AIzaSyBWDuA_j15gKTwOXqkZZQ0stWZETeZFydg",
     authDomain: "placementportal-32ced.firebaseapp.com",
-    databaseURL: "https://placementportal-32ced-default-rtdb.firebaseio.com",
+    databaseURL: "https://placementportal-32ced-default-rtdb.firebaseio.com/",
     projectId: "placementportal-32ced",
     storageBucket: "placementportal-32ced.appspot.com",
     messagingSenderId: "397452433558",

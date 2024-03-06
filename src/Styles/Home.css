@@ -32,6 +32,9 @@
   background: radial-gradient(circle at 100% 110%, rgb(0, 0, 0) 0%, rgb(10, 10, 10) 15%,rgba(20,20,20) 15%, rgba(30,30,30) 25%,rgba(40,40,40) 25%, rgba(50,50,50) 35%, rgb(9, 10, 15) 35%, rgb(9, 10, 15) 100%);
 
 }
+.college_name{
+  font-weight: 800;
+}
 .dept_name {
   font-size: 2.5em;
   font-weight: 800;

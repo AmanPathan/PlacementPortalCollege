@@ -27,7 +27,7 @@ const Student = ({ data }) => {
     setQ(location.state ? location.state.company_selected.data : "");
   }, [])
 
-  const [check_flag, setCheckFlag] = useState(3);
+  const [check_flag, setCheckFlag] = useState(0);
   const [showDiv, setShowDiv] = useState(false);
 
   const SortbyName = () => {

@@ -6,7 +6,7 @@ export default function InternshipCard({ data, index, status }) {
   const currDeadline = dateObj.getDate()+ " " + month[dateObj.getUTCMonth()] + " " + dateObj.getFullYear();
   return (
     <div key={index} className="InternshipCard">
-      <div className={status==="Closed"?"status_div status_closed":"status_div status_open"}>{status}</div>
+      <div className={status==="Closed"?"status_div status_closed":"status_div status_open"}>{status} </div>
       <a href={data.link}>
         <div className="title">{data.company}</div>
         <div className="details">

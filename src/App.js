@@ -13,7 +13,7 @@ import axios from 'axios';
 import { Analytics } from "@vercel/analytics/react";
 import Demo from './components/Demo';
 
-import { get, ref } from 'firebase/database';
+import { get, ref, set, push, getDatabase } from 'firebase/database';
 import { useState, useEffect } from 'react';
 import { database } from '../src/firebaseConfig.js';
 
@@ -25,15 +25,25 @@ function App() {
   const [internshipData, setInternshipData] = useState([]);
 
   //internship
-  const getData = async () => {
+  const getInternshipData = async () => {
     const response = await axios.get(URL1);
     setInternshipData(response.data.data);
   };
 
+  const AddData = async ()=>{
+    const dataRef = push(ref(database,"Analytics"));
+    set(dataRef,{
+      total_students:100,
+      total_companies:50,
+      placd_students:10,
+    }).then(()=>{
+      console.log("data saved");
+    }).catch((err)=>{
+      console.log(err.message);
+    })
+  }
 
-
-  useEffect(() => {
-    getData();
+  const fetchData = async () => {
     const studentsRef = ref(database, 'Students');
     get(studentsRef).then((snapshot) => {
       if (snapshot.exists()) {
@@ -48,13 +58,16 @@ function App() {
     }).catch((err) => {
       console.log(err);
     })
+  }
+  useEffect(() => {
+    getInternshipData();
+    fetchData();
   }, []);
-
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={<Home />} />
         <Route path='/dypcoe' element={<Forms />} />
         <Route path='/dashboard' element={<Dashboard data={studentsData} />} />
         <Route path='/students' element={<Student data={studentsData} />} />
