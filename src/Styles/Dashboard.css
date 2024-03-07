@@ -251,12 +251,11 @@
   width: 90px;
   height: 80px;
   border-radius: 50%;
-  /* border: 2px solid transparent; */
   padding: 0.5%;
-  --p: 0%;
-  transition: all ease-in-out 0.4s;
-  background: conic-gradient(#fbca67 var(--p), #2d2d2d 0); 
-  transition: --p 1s linear;
+  /* --p: 0%; */
+  /* transition: all ease-in-out 0.4s; */
+  /* background: conic-gradient(#fbca67 var(--p), #2d2d2d 0);  */
+  /* transition: --p 1s linear; */
 }
 
 @property --p {
