@@ -165,8 +165,8 @@
   width: 12%;
   height: 5%;
   margin-top: 15px;
-  background-color: #91c95a;
-  margin-left: 15px;
+  background-color: transparent;
+  margin-left: 12px;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
 }
@@ -178,7 +178,8 @@
 }
 
 .return_student:hover{
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
+  background-color: #454545;
 }
 
 

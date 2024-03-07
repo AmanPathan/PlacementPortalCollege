@@ -88,6 +88,20 @@
   width: 51%;
   border-radius: 15px;
   background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 2%;
+}
+.packages_div{
+  /* background-color: red; */
+  height: 80%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .flex_item4 {
   height: 95%;
@@ -168,8 +182,57 @@
   font-weight: 700;
   color: #eb5757;
 }
-.highest_package {
+
+.companies_div_dashboard{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+.companies_inner{
+  cursor: pointer;
+  flex: 0 0 calc(50% - 20px);
+  max-width: calc(50% - 20px);
+  width: 100%;
+  max-width: 100%;
+  /* width: 70px; */
+  height: 70px;
+  background-color: #393939;
+  padding: 1%;
+  /* border-radius: 6px; */
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: red; */
+  /* mix-blend-mode: multiply; */
+  /* filter: contrast(1); */
+}
+.company_img_dash{
+  width: 40%;
+  height: 100%;
+  background-color: #f4f4f4;
+  border-radius: 50%;
   padding: 3%;
+  margin-left: 1%;
+}
+.company_name{
+  font-size: 1.2rem;
+  color: #f4f4f4;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 3%;
+}
+.highest_package {
+  /* padding: 3%; */
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -177,48 +240,115 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left: 8px #f8b117 solid;
-  height: 40px;
+  /* border-left: 8px #f8b117 solid; */
+  /* background-color: red; */
+  /* padding: 5%; */
+  height: 30%;
   position: relative;
-  vertical-align: middle;
+  /* vertical-align: middle; */
+}
+.card_img_dashboard{
+  width: 90px;
+  height: 80px;
+  border-radius: 50%;
+  /* border: 2px solid transparent; */
+  padding: 0.5%;
+  --p: 0%;
+  transition: all ease-in-out 0.4s;
+  background: conic-gradient(#fbca67 var(--p), #2d2d2d 0); 
+  transition: --p 1s linear;
+}
 
-  &::before,
-  &::after {
-    box-sizing: inherit;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
+@property --p {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+.card_img_dashboard:hover{
+  --p: 100%;
+}
+.card_img_dashboard::before {
+  position: absolute;
+  inset: 20px; 
+  content: '';
+  border-radius: inherit;
+  background: white;
 }
 
 .highest_packagetext1 {
   margin: 5%;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin: 0;
   text-transform: capitalize;
   width: 70%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   padding-left: 15px;
+}
 
+.text-animation{
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+}
+
+.text-animation::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #f8b217;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.text-animation:hover::after,
+.text-animation:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+.text-animation{
+  overflow: hidden;
+}
+.text-animation:after{
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
+}
+.text-animation:hover::after,
+.text-animation:focus::after{
+  transform: translate3d(0, 0, 0);
+}
+
+.year_dashboard{
+  color: #c4c4c4;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 .highest_packagetext2 {
   color: #fff;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 500;
   margin: 0;
+  /* height: 100%; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
 }
 .highest_packagetext3 {
+  padding-bottom: 0px;
   width: 25%;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  height: 100%;
 }
 @media screen and (max-width: 1100px) {
   .flex_container1 {
