@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/Navbar.css';
-import logo from '../Assets/dyp.png';
+import logo from '../Assets/Logop.png';
 import user from '../Assets/dashboard.png';
 import { useNavigate } from "react-router-dom";
 import compete from '../Assets/hot.png';

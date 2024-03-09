@@ -57,7 +57,7 @@ function Dashboard({ data }) {
   let totalCnt = 0;
   const [totalStudents, setTotalStudents] = useState(0);
   const [averagePackage, setAverage] = useState(0);
-  const [status, setStatus] = useState(true);
+  // const [status, setStatus] = useState(true);
 
   const PreProcessing = () => {
     // sort data
@@ -73,8 +73,8 @@ function Dashboard({ data }) {
 
     data.forEach(ele => {
       if (ele.Year == "2024") {
-        if (parseInt(ele.Package, 10) != 0) {
-          cnt += parseInt(ele.Package, 10);
+        if (ele.Package != "0") {
+          cnt += parseInt(ele.Package, 10); //Parse int is used to convert stoi and 10 converts it to decimal value
           totalCnt++;
         }
       }
@@ -87,11 +87,9 @@ function Dashboard({ data }) {
   useEffect(() => {
     if (data) {
       PreProcessing();
-      setStatus(false);
+     
     }
-    else {
-      setStatus(true);
-    }
+
   }, [data])
 
   const navigate = useNavigate();

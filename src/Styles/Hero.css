@@ -34,18 +34,20 @@ h1 {
 }
 .college_name {
   text-decoration: none;
-  font-size: 36px;
+
   /* color: #131032; */
   color: #ffffff;
-  text-align: left;
+  /* display: none; */
+  /* text-align: left; */
 }
-.dept_name {
+.dept_name  {
   /* color: #4a71fc; */
   color: #aba790;
-  font-size: 2rem;
-  text-align: left;
+  font-size: 2.1rem;
+  text-align: center;
   font-weight: 700;
-}
+
+  }
 .dot {
   width: 10px !important;
   height: 10px !important;
@@ -79,4 +81,36 @@ h1 {
   align-items: center;
   justify-content: space-evenly;
   /* height: 30%; */
+}
+
+@media screen and (max-width: 768px) {
+  .college_name{
+  font-size: 1.5rem;
+}
+.dept_name{
+  margin-top: 5%;
+  font-size: 1.5rem;
+}
+}
+@media screen and (max-width: 460px) {
+  .college_name{
+  font-size: 1.5rem;
+}
+.dept_name{
+  margin-top: 5%;
+  font-size: 1.1rem;
+}
+}
+@media screen and (max-width: 360px) {
+  .college_name{
+  font-size: 1.3rem;
+}
+.college_img_div{
+  width: 100%;
+  height: 50%;
+}
+.dept_name{
+  margin-top: 5%;
+  font-size: 1rem;
+}
 }
