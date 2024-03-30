@@ -9,7 +9,6 @@
   /* background-color: #4a71fc; */
   overflow: scroll;
   overflow-x: hidden;
-
 }
 .student_searchbar{
   background-color: #222222;
@@ -114,4 +113,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width:1024px){
+  .student_div_center{
+    width: 72%;
+  }
 }

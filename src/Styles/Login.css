@@ -1,0 +1,20 @@
+.login_container{
+    background-color: #222222;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.login_center{
+    width: 30%;
+    height: 80%;
+    border-radius: 8px;
+    background-color: #373737;
+}
+.note{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}

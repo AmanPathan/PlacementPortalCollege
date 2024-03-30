@@ -120,7 +120,7 @@ function Dashboard({ data }) {
         {data.length > 0 ?
           <div className="dashboard_bottom_dashboard">
             <div className="dashboard_heading">
-              <h2 className="dashboard_headingtext">Welcome To Dashboard</h2>
+              <h2 className="dashboard_headingtext">Welcome To Dashboard <button className="admin_login" onClick={()=>{navigate('/login')}}><img src={user} className="admin_img"/>Login</button></h2>
               {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
             </div>
             <div className="flex_container1">
@@ -217,6 +217,7 @@ function Dashboard({ data }) {
                 </BarChart>
                 <h5 className="dashboard_subtext">Academic Year</h5>
               </div>
+              <div className="div_for_padding"> amsn</div>
             </div>
           </div>
           :

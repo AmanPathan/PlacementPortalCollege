@@ -9,6 +9,7 @@ import Company from './components/Company';
 import Internship from './components/Internship';
 import Hackathon from './components/Hackathon';
 import Profile from './components/Profile';
+import Login from './components/Login';
 import axios from 'axios';
 import { Analytics } from "@vercel/analytics/react";
 import Demo from './components/Demo';
@@ -68,7 +69,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/dypcoe' element={<Forms />} />
+        <Route path='/login' element={<Login/>} />
         <Route path='/dashboard' element={<Dashboard data={studentsData} />} />
         <Route path='/students' element={<Student data={studentsData} />} />
         <Route path='/companies' element={<Company data={studentsData} />} />
