@@ -65,6 +65,24 @@ function App() {
     fetchData();
   }, []);
 
+
+   //Hackathon
+   const hackathon_url = 'https://script.google.com/macros/s/AKfycbwl5PJp8hDfarVc5s0hHU0Lws42aAEPtam2oedJZQX4b-fZOM7Oq0gSzzSUFpqXIMnv/exec';
+   const [hackathons, setHackathons] = useState([]);
+   const [loading, setLoading] = useState(true);
+ 
+   async function fetchHackathonData() {
+     setLoading(true);
+     let response = await fetch(hackathon_url);
+     let data = await response.json();
+     setHackathons(data.data);
+     setLoading(false);
+   }
+ 
+   useEffect(() => {
+     fetchHackathonData();
+   }, []);
+
   return (
     <>
       <Routes>
@@ -73,7 +91,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard data={studentsData} />} />
         <Route path='/students' element={<Student data={studentsData} />} />
         <Route path='/companies' element={<Company data={studentsData} />} />
-        <Route path='/hackathons' element={<Hackathon />} />
+        <Route path="/hackathons" element={<Hackathon hackathons = {hackathons} loading = {loading} setLoading = {setLoading} />} />
         <Route path='/internships' element={<Internship internshipData={internshipData} />} />
         <Route path='/students/:ID' element={<Profile data={studentsData} />} />
         <Route path='*' element={<Home />} />
