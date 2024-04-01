@@ -13,6 +13,7 @@
 .student_searchbar{
   background-color: #222222;
   position: sticky;
+  margin-top: 15px;
 }
 .student_div_center {
   display: flex;
@@ -38,8 +39,9 @@
 .search_bar_div {
   background-color: #373737;
   width: 60%;
-  height: 55px;
+  height: 60px;
   display: flex;
+  /* margin-top: 10px; */
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

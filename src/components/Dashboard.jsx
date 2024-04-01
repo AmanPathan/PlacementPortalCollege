@@ -105,7 +105,7 @@ function Dashboard({ data }) {
       let obj = [
         { "name": date.getFullYear() - 5, "value": packages_data[0].value1 },
         { "name": date.getFullYear() - 4, "value": packages_data[0].value2 },
-        { "name": date.getFullYear() - 5, "value": packages_data[0].value3 },
+        { "name": date.getFullYear() - 3, "value": packages_data[0].value3 },
         { "name": date.getFullYear() - 2, "value": packages_data[0].value4 },
         { "name": date.getFullYear() - 1, "value": packages_data[0].value5 },
       ]
@@ -186,7 +186,7 @@ function Dashboard({ data }) {
                   </p>
                   <img src={user} className="admin_img" />
                 </button>
-                : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}
+                : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full ps-2 pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}
               {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
             </div>
             <div className="flex_container1">
@@ -243,8 +243,8 @@ function Dashboard({ data }) {
                     jdData.filter((word) => word.length <= 20).map((item, index) => {
                       return (
                         <>
-                          <div className="flex align-items-center justify-content-center p-1" key={index}>
-                            <p className="text text-gray font-bold">{item}</p>
+                          <div className="flex align-items-center justify-content-center p-1 bg-[#373737] hover:bg-[#444444] rounded-lg cursor-pointer" key={index}>
+                            <p className="text text-gray font-bold" onClick={()=>{navigate('/students')}}>{item}</p>
                           </div>
                         </>
                       )
