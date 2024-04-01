@@ -95,7 +95,7 @@ const Internship = ({ internshipData }) => {
         <div className="internship_dashboard_bottom">
           {internshipData.length > 0 ? (
             <div className="wrapper">
-              <h1>Upcoming Internships...</h1>
+              <h1 className="font-bold">Upcoming Internships...</h1>
               <div className="InternshipList">
                 {/* {internshipData.map((data, index) => { */}
                 {searchItem(internshipData).length>0?searchItem(internshipData).map((item, i) => {

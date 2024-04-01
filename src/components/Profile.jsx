@@ -357,7 +357,7 @@ const Profile = ({ data }) => {
                     </div>
                     <div className="interview_section">
                       <p className="interview_format">Experience</p>
-                      <p className="interview_format_details">{Experience}</p>
+                      <p className="interview_format_details text-justify">{Experience}</p>
                     </div>
                     <div className="interview_section">
                       <p className="interview_format">Coding Round</p>
@@ -383,13 +383,13 @@ const Profile = ({ data }) => {
                   <div className="interview_center">
                     <div className="interview_section bonus_section">
                       <p className="interview_format">Advice for Juniors</p>
-                      <p className="interview_format_details">{Advice}</p>
+                      <p className="interview_format_details text-justify">{Advice}</p>
                     </div>
                     <div className="interview_section bonus_section">
                       <p className="interview_format">
                         Mistakes I could have Avoided
                       </p>
-                      <p className="interview_format_details">{Mistakes}</p>
+                      <p className="interview_format_details text-justify">{Mistakes}</p>
                     </div>
                   </div>
                 </div>

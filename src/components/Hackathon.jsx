@@ -5,10 +5,17 @@ import HackathonCard from './HackathonCard';
 import user from '../Assets/user_profile.png';
 import search from '../Assets/search.png';
 import '../Styles/Hackathon.css';
+import HackathonLoader from './HackathonLoader';
 
 
 
-const Hackathon = () => {
+const Hackathon = (props) => {
+
+  let hackathons = props.hackathons;
+  let loading = props.loading;
+  let setLoading = props.setLoading;
+
+  // const [loading, setLoading] = useState(true);
 
   return (
     <div className='student_div'>
@@ -25,12 +32,11 @@ const Hackathon = () => {
         </div>
         <div className="dashboard_bottom">
           <div className='hackathon_title_up'>
-            <h3 className='heading_ text-white font-extrabold'>Upcoming Hackathons...</h3>
+            <h3 className='heading_ text-white font-extrabold text-3xl'>Upcoming Hackathons...</h3>
           </div>
-          <div className="hackthon_class card-container flex flex-col flex-wrap">
-            <HackathonCard />
+          <div className="hackthon_class card-container flex flex-wrap">
+          {loading ?<HackathonLoader />: <HackathonCard hackathons = {hackathons} />}
           </div>
-
         </div>
       </div>
     </div>

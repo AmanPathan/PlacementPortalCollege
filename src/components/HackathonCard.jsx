@@ -56,7 +56,7 @@ const hackathons_list = [
 const HackathonCard = () => {
   return hackathons_list.map((temp) => (
       <div className="card card2">
-        <h4 className="hackathon_title">{temp.title}</h4>
+        <h4 className="hackathon_title text-xl font-bold">{temp.title}</h4>
         <p className="para_description">{temp.description}</p>
         <p className="para_registration"> <span className="font-bold hackathon_date">Deadline :</span> {temp.registration}</p>
         <p className="para_registration"> <span className="mode font-bold">Mode :</span> {temp.mode}</p>

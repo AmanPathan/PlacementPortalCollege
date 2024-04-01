@@ -232,7 +232,7 @@ const Company = () => {
         </div>
         <div className="dashboard_bottom">
           <div className="card-container1">
-          <h1 className="companies_title">List of companies that visit our campus</h1>
+          <h1 className="companies_title font-bold text-3xl">List of companies that visit our campus</h1>
             <div className="cards1">
               {searchItem(companiesList).length>0?searchItem(companiesList).map((item, index) => {
                 return (
