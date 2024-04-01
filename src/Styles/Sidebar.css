@@ -24,13 +24,21 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  flex-direction: column;
+  color: #bfc4c4;
+  text-align: center;
+}
+.sidebar_college_name>span{
+  width: 80%;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 .sidebar_college_name:hover{
   cursor: pointer;
 }
 .sidebar_college_name>img{
-  height: 60%;
-  width: 100%;
+  height: 40%;
+  width: 60%;
   border-radius: 10px;
 }
 .sidebar_menu {

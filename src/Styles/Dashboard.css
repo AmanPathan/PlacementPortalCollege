@@ -13,7 +13,7 @@
 
 .dashboard_bottom_dashboard {
   width: 100%;
-  height: 110vh;
+  height: 150vh;
   padding: 0% 2% 2% 0%;
   margin: auto;
   display: flex;
@@ -62,8 +62,8 @@
   justify-content: space-between;
 }
 .flex_item {
-  border-left-width: 10px;
-  border-left-color: #f8b217;
+  /* border-left-width: 10px; */
+  /* border-left-color: #f8b217; */
   height: 100%;
   width: 49%;
   padding: 20px;
@@ -85,11 +85,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  height: 90%;
+  height: 100%;
 }
 .flex_item3 {
   /* height: 350px; */
-  height: 95%;
+  height: 100%;
   width: 51%;
   border-radius: 15px;
   background-color: #2d2d2d;
@@ -109,7 +109,7 @@
   justify-content: space-evenly;
 }
 .flex_item4 {
-  height: 95%;
+  height: 100%;
   width: 47%;
   border-radius: 15px;
   padding-top: 15px;
@@ -159,9 +159,25 @@
   margin-top: 20px;
   margin-bottom: 15px;
   width: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+}
+.admin_profile{
+  width: 19%;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.admin_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: flex-end;
+  padding: 1%;
 }
 .admin_login{
   width: 9%;
@@ -178,13 +194,16 @@
   transition: all ease-in-out 0.2s;
 }
 .admin_img{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   filter: invert();
   margin-right: 8px;
 }
 .admin_login:hover{
   color: #fbca67;
+}
+.admin_role:hover{
+  color: #4a71fc;
 }
 .dashboard_text {
   color: #fff;
@@ -224,7 +243,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 .companies_inner{
   cursor: pointer;
@@ -276,41 +294,22 @@
   /* border-left: 8px #f8b117 solid; */
   /* background-color: red; */
   /* padding: 5%; */
-  height: 30%;
+  height: 20%;
   position: relative;
   /* vertical-align: middle; */
 }
 .card_img_dashboard{
-  width: 90px;
-  height: 80px;
+  width: 70px;
+  height: 60px;
   border-radius: 50%;
-  padding: 0.5%;
-  /* --p: 0%; */
-  /* transition: all ease-in-out 0.4s; */
-  /* background: conic-gradient(#fbca67 var(--p), #2d2d2d 0);  */
-  /* transition: --p 1s linear; */
+  padding: 1%;
 }
 
-@property --p {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
-.card_img_dashboard:hover{
-  --p: 100%;
-}
-.card_img_dashboard::before {
-  position: absolute;
-  inset: 20px; 
-  content: '';
-  border-radius: inherit;
-  background: white;
-}
 
 .highest_packagetext1 {
   margin: 5%;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   text-transform: capitalize;
@@ -326,16 +325,16 @@
 .text-animation{
   display: block;
   position: relative;
-  padding: 0.2em 0;
+  padding: 0.1em 0;
 }
 
 .text-animation::after {
   content: '';
   position: absolute;
-  bottom: 4px;
+  bottom: 0px;
   left: 0;
   width: 100%;
-  height: 0.1em;
+  height: 0.15em;
   background-color: #f8b217;
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
@@ -358,14 +357,18 @@
   transform: translate3d(0, 0, 0);
 }
 
+.highest_package:hover{
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 50px;
+}
 .year_dashboard{
   color: #c4c4c4;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .highest_packagetext2 {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   margin: 0;
   /* height: 100%; */
@@ -373,13 +376,12 @@
   justify-content: space-evenly;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 .highest_packagetext3 {
-  padding-bottom: 0px;
   width: 25%;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   height: 100%;
 }
 @media screen and (max-width: 1100px) {

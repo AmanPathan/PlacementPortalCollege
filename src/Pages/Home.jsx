@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/Home.css';
 import '../Styles/Hero.css';
 import AOS from 'aos';
@@ -65,10 +65,10 @@ const Home = () => {
             <h2 className='dept_name'>Department of Information Technology</h2>
           </div>
 
-          <div className='college_img_div'> 
+          <div className='college_img_div'>
             <img src={college_img} className='college_div_img' />
           </div>
-          
+
           {/* <button className='nav_btn_home' onClick={handleRedirectDashboard}  >Explore <img className='rocket' src={rocket} /> </button> */}
         </div>
       </div>
