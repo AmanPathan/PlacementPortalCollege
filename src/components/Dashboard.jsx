@@ -27,7 +27,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { Colors } from "chart.js";
 
 
 function Dashboard({ data }) {
@@ -129,13 +128,13 @@ function Dashboard({ data }) {
   }
 
   useEffect(() => {
-    if (data) {
-      SortStudents();
-    }
     get_graph_data();
     get_stats();
   }, [])
 
+  useEffect(()=>{
+    SortStudents();
+  },[data])
   const navigate = useNavigate();
 
   const handleClick = (data) => {

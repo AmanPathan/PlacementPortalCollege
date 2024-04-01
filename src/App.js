@@ -76,7 +76,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard data={studentsData} />} />
         <Route path='/students' element={<Student data={studentsData} />} />
         <Route path='/companies' element={<Company data={studentsData} />} />
-        <Route path="/hackathons" element={<Hackathon hackathons = {hackathons} loading = {loading} setLoading = {setLoading} />} />
+        <Route path='/hackathons' element={<Hackathon />} />
         <Route path='/resetpassword' element={<ForgotPassword />} />
         <Route path='/internships' element={<Internship internshipData={internshipData} />} />
         <Route path='/students/:ID' element={<Profile data={studentsData} />} />
