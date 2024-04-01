@@ -31,7 +31,6 @@ import { Colors } from "chart.js";
 
 
 function Dashboard({ data }) {
-
   const [authUser, setAuthUser] = useState(null);
   const [username, setUsername] = useState('');
   const [maxpackages, setPackages] = useState(null);
@@ -52,28 +51,38 @@ function Dashboard({ data }) {
   }, []);
 
   // console.log("User:",authUser);
-  const companiesList = [
-    {
-      "icon": 'https://www.ptc.com/dist/ptc/images/ptc-favicon-512x512-gray.png',
-      "name": "PTC"
-    },
-    {
-      "icon": "https://companieslogo.com/img/orig/WLN.PA-a6cf516b.png?t=1648300217",
-      "name": "WorldLine",
-    },
-    {
-      "icon": "https://i.ibb.co/WGrJpdw/juspay.png",
-      "name": "Juspay",
-    },
-    {
-      "icon": "https://asset.brandfetch.io/idzF9a2Y93/idASzAc-NY.png",
-      "name": "Cognizant",
-    },
-  ];
+  // const companiesList = [
+  //   {
+  //     "icon": 'https://www.ptc.com/dist/ptc/images/ptc-favicon-512x512-gray.png',
+  //     "name": "PTC"
+  //   },
+  //   {
+  //     "icon": "https://companieslogo.com/img/orig/WLN.PA-a6cf516b.png?t=1648300217",
+  //     "name": "WorldLine",
+  //   },
+  //   {
+  //     "icon": "https://i.ibb.co/WGrJpdw/juspay.png",
+  //     "name": "Juspay",
+  //   },
+  //   {
+  //     "icon": "https://asset.brandfetch.io/idzF9a2Y93/idASzAc-NY.png",
+  //     "name": "Cognizant",
+  //   },
+  // ];
 
 
   const [graphData, setGraphData] = useState({});
   const [stats, setStats] = useState([]);
+
+
+  let jd_data = data.map((item) => {
+    let jd = item['Jobprofile'];
+    return (jd.trim());
+  })
+  let unique_data = new Set(jd_data);
+  const jdData = Array.from(unique_data);
+
+  console.log(unique_data);
 
   const SortStudents = () => {
     // sort data
@@ -95,11 +104,11 @@ function Dashboard({ data }) {
       const packages_data = Object.values(snapshot.val());
       const date = new Date();
       let obj = [
-        {"name":date.getFullYear()-5, "value":packages_data[0].value1},
-        {"name":date.getFullYear()-4, "value":packages_data[0].value2},
-        {"name":date.getFullYear()-5, "value":packages_data[0].value3},
-        {"name":date.getFullYear()-2, "value":packages_data[0].value4},
-        {"name":date.getFullYear()-1, "value":packages_data[0].value5},
+        { "name": date.getFullYear() - 5, "value": packages_data[0].value1 },
+        { "name": date.getFullYear() - 4, "value": packages_data[0].value2 },
+        { "name": date.getFullYear() - 5, "value": packages_data[0].value3 },
+        { "name": date.getFullYear() - 2, "value": packages_data[0].value4 },
+        { "name": date.getFullYear() - 1, "value": packages_data[0].value5 },
       ]
       setGraphData(obj);
     }
@@ -136,6 +145,8 @@ function Dashboard({ data }) {
       }
     })
   }
+
+  const date = new Date();
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
@@ -145,7 +156,7 @@ function Dashboard({ data }) {
         </div>
       );
     }
-  
+
     return null;
   };
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
@@ -167,16 +178,16 @@ function Dashboard({ data }) {
         {data.length > 0 ?
           <div className="dashboard_bottom_dashboard">
             <div className="dashboard_heading">
-              <h2 className="dashboard_headingtext">Welcome To Dashboard
-                {authUser ?
-                  <button className="admin_profile" onClick={() => { navigate('/admin') }}>
-                    <p className="admin_div">
-                      <span className="admin_email text-sm text-[#f8b217] font-bold">{username.slice(0, username.indexOf('@'))}</span>
-                      <a href="/admin" className="admin_role">Go to Dashboard</a>
-                    </p>
-                    <img src={user} className="admin_img" />
-                  </button>
-                  : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}</h2>
+              <h2 className="dashboard_headingtext">Welcome To Dashboard <span className="text font-normal text-3xl">({date.getFullYear()})</span></h2>
+              {authUser ?
+                <button className="admin_profile" onClick={() => { navigate('/admin') }}>
+                  <p className="admin_div">
+                    <span className="admin_email text-sm text-[#f8b217] font-bold">{username.slice(0, username.indexOf('@'))}</span>
+                    <a href="/admin" className="admin_role">Go to Dashboard</a>
+                  </p>
+                  <img src={user} className="admin_img" />
+                </button>
+                : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}
               {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
             </div>
             <div className="flex_container1">
@@ -203,7 +214,7 @@ function Dashboard({ data }) {
                 </div>
               </div>
               <div className="flex_item2 ">
-                <h3 className="dashboard_text">Top Recruiters</h3>
+                <h3 className="dashboard_text">Top Job Profiles</h3>
                 {/* {
                   data.slice(0, 3).map((item, index) => {
                     const { Name, Package, Company, UID } = item;
@@ -216,7 +227,7 @@ function Dashboard({ data }) {
                   })
                 } */}
                 <div className="companies_div_dashboard">
-                  {companiesList.map((company, index) => {
+                  {/* {companiesList.map((company, index) => {
                     return (
                       <>
                         <div className="companies_inner" key={index} onClick={(e) => { handleClick(company.name) }}>
@@ -227,16 +238,28 @@ function Dashboard({ data }) {
                     )
                   })
 
+                  } */}
+
+                  {
+                    jdData.filter((word) => word.length <= 20).map((item, index) => {
+                      return (
+                        <>
+                          <div className="flex align-items-center justify-content-center p-1" key={index}>
+                            <p className="text text-gray font-bold">{item}</p>
+                          </div>
+                        </>
+                      )
+                    })
                   }
                 </div>
               </div>
             </div>
             <div className="flex_container2">
               <div className="flex_item3">
-                <h3 className="dashboard_text">Top 3 Packages</h3>
+                <h3 className="dashboard_text">Top 5 Packages</h3>
                 <div className="packages_div">
                   {
-                    data.slice(0, 3).map((item, index) => {
+                    data.slice(0, 5).map((item, index) => {
                       const { Name, Package, Company, UID, ProfileLink, Year } = item;
                       const profileImg = ProfileLink.slice(33,);
 
@@ -257,20 +280,20 @@ function Dashboard({ data }) {
               <div className="flex_item4" >
                 <h5 className="dashboard_text">Max Packages (LPA)</h5>
                 <BarChart
-                  width={500}
-                  height={220}
+                  width={550}
+                  height={300}
                   data={graphData}
 
                   margin={{
-                    top: 5,
+                    top: 20,
                     right: 20,
-                    left:15,
-                    bottom: 5,
+                    left: 20,
+                    bottom: 30,
                   }}
                 >
-                  <Tooltip content={<CustomTooltip/>}/>
-                  <XAxis dataKey="name" label={{value:"Academic Years",position: "bottom",fill:"#ffffff"}} stroke="white" />
-                  <YAxis stroke="white"  label={{ value: 'Salary (LPA)', angle: -90,position: "insideCenter",fill:"#ffffff",   dx: -20}}  />
+                  <Tooltip content={<CustomTooltip />} />
+                  <XAxis dataKey="name" label={{ offset: 15, value: "Academic Years", position: "bottom", fill: "#ffffff" }} stroke="white" />
+                  <YAxis stroke="white" label={{ value: 'Salary (LPA)', angle: -90, position: "insideCenter", fill: "#ffffff", dx: -25 }} />
                   <Bar dataKey="value" fill="#4971FC" barSize={60} label={renderCustomBarLabel} />
                 </BarChart>
               </div>
