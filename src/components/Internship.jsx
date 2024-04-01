@@ -105,7 +105,7 @@ const Internship = ({ internshipData }) => {
                 })
                 :
                 <div className='center_div'>
-                  <h3 className='no_Records'>No Records Found!</h3>
+                  <h3 className='text-xl font-bold text-red-500 '>No Records Found!</h3>
                 </div>}
               </div>
             </div>

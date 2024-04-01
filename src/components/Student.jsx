@@ -149,7 +149,7 @@ const Student = ({ data }) => {
                 })
                   :
                   <div className='center_div'>
-                    <h3 className='no_Records'>No Records Found!</h3>
+                    <h3 className='no_Records text-2xl'>No Records Found!</h3>
                   </div>
                 }
               </div>

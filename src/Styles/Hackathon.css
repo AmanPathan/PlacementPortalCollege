@@ -5,6 +5,9 @@
     position: relative;
     margin-left: 10px;
 }
+.hackthon_div{
+    width: 100%;
+}
 .hackathon_title_up{
     width: 100%;
 }
@@ -14,15 +17,15 @@
 }
 .hackthon_class{
     height: fit-content;
+    width: 100%;
     display: flex;
-    /* flex-direction: row; */
-    margin-left: 30px;
+    padding-left: 30px;
 }
 .heading_{
     margin-top: 30px;
     margin-bottom: 30px;
     font-weight: 800;
-    margin-left: 30px;
+    padding-left: 30px;
     background-color: #222222;
     position: -webkit-sticky;
     position: sticky;
