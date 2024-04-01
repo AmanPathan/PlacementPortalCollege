@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Styles/Footer.css';
-import logo from '../Assets/dyplogo.png';
+import logo from '../Assets/dypcoe.jpeg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import youtube from '../Assets/youtube.png';

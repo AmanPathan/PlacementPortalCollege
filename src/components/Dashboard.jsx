@@ -8,6 +8,13 @@ import InternshipLoader from './InternshipLoader';
 import '../Styles/InternshipLoader.css';
 import { useNavigate } from "react-router-dom";
 import dummy from '../Assets/dummy.jpg';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth, database } from '../firebaseConfig';
+import { get, set, ref } from 'firebase/database';
+
 
 import {
   BarChart,
@@ -25,41 +32,50 @@ import { Colors } from "chart.js";
 
 function Dashboard({ data }) {
 
+  const [authUser, setAuthUser] = useState(null);
+  const [username, setUsername] = useState('');
+  const [maxpackages, setPackages] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+        setUsername(user.email);
+      }
+      else {
+        setAuthUser(null);
+      }
+    });
+    return () => {
+      listen();
+    }
+  }, []);
+
+  // console.log("User:",authUser);
   const companiesList = [
     {
-      "icon":'https://www.ptc.com/dist/ptc/images/ptc-favicon-512x512-gray.png',
-      "name":"PTC"
+      "icon": 'https://www.ptc.com/dist/ptc/images/ptc-favicon-512x512-gray.png',
+      "name": "PTC"
     },
     {
-      "icon":"https://companieslogo.com/img/orig/WLN.PA-a6cf516b.png?t=1648300217",
-      "name":"WorldLine",
+      "icon": "https://companieslogo.com/img/orig/WLN.PA-a6cf516b.png?t=1648300217",
+      "name": "WorldLine",
     },
     {
-      "icon":"https://i.ibb.co/WGrJpdw/juspay.png",
-      "name":"Juspay",
+      "icon": "https://i.ibb.co/WGrJpdw/juspay.png",
+      "name": "Juspay",
     },
     {
-      "icon":"https://asset.brandfetch.io/idzF9a2Y93/idASzAc-NY.png",
-      "name":"Cognizant",
+      "icon": "https://asset.brandfetch.io/idzF9a2Y93/idASzAc-NY.png",
+      "name": "Cognizant",
     },
   ];
 
-  const data1 = [
-    { name: "2019", value: 10 },
-    { name: "2020", value: 16.5 },
-    { name: "2021", value: 28.36 },
-    { name: "2022", value: 41.3 },
-    { name: "2023", value: 18.74 },
-  ];
 
+  const [graphData, setGraphData] = useState({});
+  const [stats, setStats] = useState([]);
 
-  let cnt = 0;
-  let totalCnt = 0;
-  const [totalStudents, setTotalStudents] = useState(0);
-  const [averagePackage, setAverage] = useState(0);
-  // const [status, setStatus] = useState(true);
-
-  const PreProcessing = () => {
+  const SortStudents = () => {
     // sort data
     data.sort((a, b) => {
       if (a.Package > b.Package) {
@@ -70,43 +86,74 @@ function Dashboard({ data }) {
         return 0;
       }
     });
+  }
 
-    data.forEach(ele => {
-      if (ele.Year == "2024") {
-        if (ele.Package != "0") {
-          cnt += parseInt(ele.Package, 10); //Parse int is used to convert stoi and 10 converts it to decimal value
-          totalCnt++;
-        }
-      }
-    });
-
-    setAverage((cnt / totalCnt).toFixed(1));
-    setTotalStudents(totalCnt);
+  const get_graph_data = async () => {
+    const studentsRef = ref(database, 'dashboard/maxPackages');
+    const snapshot = await get(studentsRef);
+    if (snapshot.exists()) {
+      const packages_data = Object.values(snapshot.val());
+      const date = new Date();
+      let obj = [
+        {"name":date.getFullYear()-5, "value":packages_data[0].value1},
+        {"name":date.getFullYear()-4, "value":packages_data[0].value2},
+        {"name":date.getFullYear()-5, "value":packages_data[0].value3},
+        {"name":date.getFullYear()-2, "value":packages_data[0].value4},
+        {"name":date.getFullYear()-1, "value":packages_data[0].value5},
+      ]
+      setGraphData(obj);
+    }
+    else {
+      toast.error('Error Fecthing Graph Data!');
+    }
+  }
+  const get_stats = async () => {
+    const studentsRef = ref(database, 'dashboard/statistics');
+    const snapshot = await get(studentsRef);
+    if (snapshot.exists()) {
+      const res_data = Object.values(snapshot.val());
+      setStats(res_data[0]);
+    }
+    else {
+      toast.error('Error Fecthing Stats Data!');
+    }
   }
 
   useEffect(() => {
     if (data) {
-      PreProcessing();
-     
+      SortStudents();
     }
-
-  }, [data])
+    get_graph_data();
+    get_stats();
+  }, [])
 
   const navigate = useNavigate();
 
-  const handleClick = (data)=>{
-    navigate("/students",{
-      state:{
-        company_selected:{data},
+  const handleClick = (data) => {
+    navigate("/students", {
+      state: {
+        company_selected: { data },
       }
     })
   }
-
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="custom-label">{`Year : ${label} `}</p>
+          <p className="custom-label">{`Max Package : ${payload[0].value} LPA`}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
   const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
     return <text x={x + width / 2} y={y} fill="#ffffff" textAnchor="middle" dy={-6}>{`${value}`}</text>;
   };
   return (
     <div className="student_div">
+      <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
       <Sidebar param={"dashboard"} />
       <div className="student_div_center">
         {/* <div className="dashboard_top">
@@ -120,7 +167,16 @@ function Dashboard({ data }) {
         {data.length > 0 ?
           <div className="dashboard_bottom_dashboard">
             <div className="dashboard_heading">
-              <h2 className="dashboard_headingtext">Welcome To Dashboard <button className="admin_login" onClick={()=>{navigate('/login')}}><img src={user} className="admin_img"/>Login</button></h2>
+              <h2 className="dashboard_headingtext">Welcome To Dashboard
+                {authUser ?
+                  <button className="admin_profile" onClick={() => { navigate('/admin') }}>
+                    <p className="admin_div">
+                      <span className="admin_email text-sm text-[#f8b217] font-bold">{username.slice(0, username.indexOf('@'))}</span>
+                      <a href="/admin" className="admin_role">Go to Dashboard</a>
+                    </p>
+                    <img src={user} className="admin_img" />
+                  </button>
+                  : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}</h2>
               {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
             </div>
             <div className="flex_container1">
@@ -128,21 +184,21 @@ function Dashboard({ data }) {
                 <div className="flex_item1-1">
                   <div className="flex_item">
                     <h3 className="dashboard_text">Total Students</h3>
-                    <h2 id="total_student">150</h2>
+                    <h2 id="total_student">{stats.totalStudents}</h2>
                   </div>
                   <div className="flex_item">
                     <h3 className="dashboard_text">Placed Students</h3>
-                    <h2 id="placed_student">{totalStudents}</h2>
+                    <h2 id="placed_student">{stats.placedStudents}</h2>
                   </div>
                 </div>
                 <div className="flex_item1-2">
                   <div className="flex_item">
                     <h3 className="dashboard_text">Total Companies</h3>
-                    <h2 id="total_company">58</h2>
+                    <h2 id="total_company">{stats.totalCompanies}</h2>
                   </div>
                   <div className="flex_item">
                     <h3 className="dashboard_text">Average Package</h3>
-                    <h2 id="avg_salary">{averagePackage} LPA</h2>
+                    <h2 id="avg_salary">{stats.averagePackage} LPA</h2>
                   </div>
                 </div>
               </div>
@@ -159,20 +215,20 @@ function Dashboard({ data }) {
                     )
                   })
                 } */}
-              <div className="companies_div_dashboard">
-                {companiesList.map((company,index)=>{
-                  return (
-                    <>
-                      <div className="companies_inner" key={index} onClick={(e)=>{handleClick(company.name)}}>
-                        <img src={company.icon} className="company_img_dash"/>
-                        <p className="company_name">{company.name}</p>
-                      </div>
-                    </>
-                  )
-                })
-                  
-                }
-              </div>  
+                <div className="companies_div_dashboard">
+                  {companiesList.map((company, index) => {
+                    return (
+                      <>
+                        <div className="companies_inner" key={index} onClick={(e) => { handleClick(company.name) }}>
+                          <img src={company.icon} className="company_img_dash" />
+                          <p className="company_name">{company.name}</p>
+                        </div>
+                      </>
+                    )
+                  })
+
+                  }
+                </div>
               </div>
             </div>
             <div className="flex_container2">
@@ -181,15 +237,15 @@ function Dashboard({ data }) {
                 <div className="packages_div">
                   {
                     data.slice(0, 3).map((item, index) => {
-                      const { Name, Package, Company, UID,ProfileLink,Year } = item;
+                      const { Name, Package, Company, UID, ProfileLink, Year } = item;
                       const profileImg = ProfileLink.slice(33,);
 
                       return (
                         <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
                           {profileImg ?
-                        <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
-                          className="card_img_dashboard spin circle" alt='Not Found' />
-                        : <img src={dummy} alt="pic" className="card_img_dashboard spin circle" />}
+                            <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
+                              className="card_img_dashboard spin circle" alt='Not Found' />
+                            : <img src={dummy} alt="pic" className="card_img_dashboard spin circle" />}
                           <h3 className="highest_packagetext1"><span className="text-animation">{Name.split(" ")[0] + " " + Name.split(" ")[Name.split(" ").length - 1]}</span><span className="highest_packagetext2">{Company}</span></h3>
                           <h3 className="highest_packagetext2 highest_packagetext3">{Package} LPA <span className="year_dashboard">{Year} Batch</span> </h3>
                         </div>
@@ -201,21 +257,22 @@ function Dashboard({ data }) {
               <div className="flex_item4" >
                 <h5 className="dashboard_text">Max Packages (LPA)</h5>
                 <BarChart
-                  width={600}
-                  height={280}
-                  data={data1}
+                  width={500}
+                  height={220}
+                  data={graphData}
 
                   margin={{
                     top: 5,
-                    right: 30,
+                    right: 20,
+                    left:15,
                     bottom: 5,
                   }}
                 >
-                  <XAxis dataKey="name" stroke="white" />
-                  <YAxis stroke="white" />
+                  <Tooltip content={<CustomTooltip/>}/>
+                  <XAxis dataKey="name" label={{value:"Academic Years",position: "bottom",fill:"#ffffff"}} stroke="white" />
+                  <YAxis stroke="white"  label={{ value: 'Salary (LPA)', angle: -90,position: "insideCenter",fill:"#ffffff",   dx: -20}}  />
                   <Bar dataKey="value" fill="#4971FC" barSize={60} label={renderCustomBarLabel} />
                 </BarChart>
-                <h5 className="dashboard_subtext">Academic Year</h5>
               </div>
               <div className="div_for_padding"> amsn</div>
             </div>
