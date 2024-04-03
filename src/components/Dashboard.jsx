@@ -177,7 +177,7 @@ function Dashboard({ data }) {
         {data.length > 0 ?
           <div className="dashboard_bottom_dashboard">
             <div className="dashboard_heading">
-              <h2 className="dashboard_headingtext">Welcome To Dashboard <span className="text font-normal text-3xl">2023</span></h2>
+              <h2 className="dashboard_headingtext">Welcome To Dashboard <span className="text font-normal text-3xl">(2023)</span></h2>
               {authUser ?
                 <button className="admin_profile" onClick={() => { navigate('/admin') }}>
                   <p className="admin_div">
