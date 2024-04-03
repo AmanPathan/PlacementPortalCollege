@@ -53,6 +53,8 @@ const Home = () => {
   }
   return (
     <>
+    {<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5164424016159245"
+     crossorigin="anonymous"></script>}
       <div className="home_container">
         <Navbar />
         <div className="container_home_center">
