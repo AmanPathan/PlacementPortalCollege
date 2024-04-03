@@ -213,7 +213,7 @@ function Dashboard({ data }) {
                 </div>
               </div>
               <div className="flex_item2 ">
-                <h3 className="dashboard_text">Job Profiles</h3>
+                <h3 className="dashboard_text">Top Job Profiles</h3>
                 {/* {
                   data.slice(0, 3).map((item, index) => {
                     const { Name, Package, Company, UID } = item;
