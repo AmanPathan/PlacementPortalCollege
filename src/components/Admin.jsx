@@ -416,7 +416,7 @@ const Admin = () => {
                     </div>
                     {/* placement statistics data */}
                     <div className='statistics_div'>
-                        <h2 className='text-center font-bold text-2xl p-3 text-[#f8b217]'>Placement Statistics <span className='text-white font-medium'>({date.getFullYear()})</span> </h2>
+                        <h2 className='text-center font-bold text-2xl p-3 text-[#f8b217]'>Placement Statistics <span className='text-white font-medium'>({date.getFullYear()-1})</span> </h2>
                         <div className='p-2 ps-3 pe-3 flex justify-content-between align-items-center'>
                             <p className='text text-white text-xl'>Total Students : </p>
                             <input type="text" onChange={handelChange1} value={statData.totalStudents} name='totalStudents' id="first_name" class="inp_field border border-gray-300 w-25 text-white text-sm rounded-full focus:ring-blue-500 outline-none focus:border-blue-500 block p-2 ps-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
