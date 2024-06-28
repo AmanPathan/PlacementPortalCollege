@@ -140,6 +140,7 @@ const Admin = () => {
         if (snapshot.exists()) {
             let cur_pack = Object.values(snapshot.val());
             setPercentages(cur_pack[0]);
+            // console.log("This-----",cur_pack);
         }
         else {
             toast.error('Error Fecthing Percentages!');
@@ -266,7 +267,7 @@ const Admin = () => {
 // -------------------------------------------------------------------------------
 
     useEffect(() => {
-        get_stats();       // statistics
+        get_stats();        // statistics
         get_graphData2();  // highest package
         get_graphData3();  //placement percentages
         get_graphData4();  // companies

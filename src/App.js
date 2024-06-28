@@ -35,18 +35,18 @@ function App() {
 
   let authUser = localStorage.getItem('user');
 
-  const AddData = async ()=>{
-    const dataRef = push(ref(database,"Analytics"));
-    set(dataRef,{
-      total_students:100,
-      total_companies:50,
-      placd_students:10,
-    }).then(()=>{
-      console.log("data saved");
-    }).catch((err)=>{
-      console.log(err.message);
-    })
-  }
+    // const AddData = async ()=>{
+    //   const dataRef = push(ref(database,"Analytics"));
+    //   set(dataRef,{
+    //     total_students:100,
+    //     total_companies:50,
+    //     placd_students:10,
+    //   }).then(()=>{
+    //     console.log("data saved");
+    //   }).catch((err)=>{
+    //     console.log(err.message);
+    //   })
+    // }
 
   const fetchData = async () => {
     const studentsRef = ref(database, 'Students');
@@ -55,6 +55,7 @@ function App() {
         const studentsArray = Object.entries(snapshot.val()).map(([id, data]) => ({
           id, ...data,
         }));
+        // console.log("This is"+studentsArray[0][0]);
         setStudents(studentsArray);
       }
       else {
@@ -71,21 +72,22 @@ function App() {
 
 
    //Hackathon
-   const hackathon_url = 'https://script.google.com/macros/s/AKfycbwl5PJp8hDfarVc5s0hHU0Lws42aAEPtam2oedJZQX4b-fZOM7Oq0gSzzSUFpqXIMnv/exec';
-   const [hackathons, setHackathons] = useState([]);
-   const [loading, setLoading] = useState(true);
+   
+  //  const hackathon_url = 'https://script.google.com/macros/s/AKfycbwl5PJp8hDfarVc5s0hHU0Lws42aAEPtam2oedJZQX4b-fZOM7Oq0gSzzSUFpqXIMnv/exec';
+  //  const [hackathons, setHackathons] = useState([]);
+  //  const [loading, setLoading] = useState(true);
  
-   async function fetchHackathonData() {
-     setLoading(true);
-     let response = await fetch(hackathon_url);
-     let data = await response.json();
-     setHackathons(data.data);
-     setLoading(false);
-   }
+  //  async function fetchHackathonData() {
+  //    setLoading(true);
+  //    let response = await fetch(hackathon_url);
+  //    let data = await response.json();
+  //    setHackathons(data.data);
+  //    setLoading(false);
+  //  }
  
-   useEffect(() => {
-     fetchHackathonData();
-   }, []);
+  //  useEffect(() => {
+  //    fetchHackathonData();
+  //  }, []);
 
   return (
     <>
@@ -94,7 +96,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard data={studentsData} />} />
         <Route path='/students' element={<Student data={studentsData} />} />
         <Route path='/companies' element={<Company data={studentsData} />} />
-        <Route path="/hackathons" element={<Hackathon hackathons = {hackathons} loading = {loading} setLoading = {setLoading} />} />
+        {/* <Route path="/hackathons" element={<Hackathon hackathons = {hackathons} loading = {loading} setLoading = {setLoading} />} /> */}
         <Route path='/resetpassword' element={<ForgotPassword />} />
         <Route path='/internships' element={<Internship internshipData={internshipData} />} />
         <Route path='/students/:ID' element={<Profile data={studentsData} />} />
