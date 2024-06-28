@@ -31,9 +31,9 @@ const Login = () => {
         toast.error("Invalid Credentials!");
       });
   };
+  const [value, setvalue] = useState("");
 
-  const handleclick = (e) => {
-    e.preventDefault();
+  const handleclick = () => {
     signInWithPopup(auth, provider)
       .then((data) => {
         toast.success("Logged in Successfully!");
@@ -44,13 +44,15 @@ const Login = () => {
 
         localStorage.setItem("user", JSON.stringify(data.user));
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error("Invalid Credentials!");       
       });
   };
 
 
-
+  useEffect(() => {
+    setvalue(localStorage.getItem("user"));
+  });
   return (
     <>
       <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
