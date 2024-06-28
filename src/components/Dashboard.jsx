@@ -177,7 +177,7 @@ function Dashboard({ data }) {
         {data.length > 0 ?
           <div className="dashboard_bottom_dashboard">
             <div className="dashboard_heading">
-              <h2 className="dashboard_headingtext">Welcome To Dashboard <span className="text font-normal text-3xl">({date.getFullYear()})</span></h2>
+              <h2 className="dashboard_headingtext">Welcome To Dashboard <span className="text font-normal text-3xl">(2023)</span></h2>
               {authUser ?
                 <button className="admin_profile" onClick={() => { navigate('/admin') }}>
                   <p className="admin_div">
@@ -213,7 +213,7 @@ function Dashboard({ data }) {
                 </div>
               </div>
               <div className="flex_item2 ">
-                <h3 className="dashboard_text">Top Job Profiles</h3>
+                <h3 className="dashboard_text">Job Profiles</h3>
                 {/* {
                   data.slice(0, 3).map((item, index) => {
                     const { Name, Package, Company, UID } = item;
