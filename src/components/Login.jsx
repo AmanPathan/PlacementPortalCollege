@@ -31,18 +31,24 @@ const Login = () => {
         toast.error("Invalid Credentials!");
       });
   };
-  const [value, setvalue] = useState("");
+
+  const allowedValues = ['siddhantshahane4040@gmail.com', 'placementportal2024@gmail.com' ,'amanpathan526@gmail.com','sahilp0873@gmail.com','pgupta@dypcoeakurdi.ac.in'];
 
   const handleclick = () => {
     signInWithPopup(auth, provider)
       .then((data) => {
-        toast.success("Logged in Successfully!");
-        setTimeout(() => {
+        console.log( data.user.email);
+        if(allowedValues.includes(data.user.email)){
+          toast.success("Logged in Successfully!");
+          setTimeout(() => {
           navigate("/admin");
           window.location.reload();
         }, 2000);
-
         localStorage.setItem("user", JSON.stringify(data.user));
+        }else{
+          toast.error("Invalid Credentials!");   
+        }
+      
       })
       .catch((error) => {
         toast.error("Invalid Credentials!");       
@@ -50,9 +56,7 @@ const Login = () => {
   };
 
 
-  useEffect(() => {
-    setvalue(localStorage.getItem("user"));
-  });
+
   return (
     <>
       <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
@@ -105,17 +109,17 @@ const Login = () => {
                 </div>
 
                 <input
-                  class="mt-4 pt-2 pb-2 w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
+                  class="mt-4  w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
                   type="submit"
                   value="Login"
                 />
               </form>
-              {/* <button
+              <button
                 onClick={handleclick}
                 class="mt-2  w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
               >
                 Login with Google
-              </button> */}
+              </button>
               <div class="mt-4 text-center">
                 <p class="text-sm text-gray-600">
                   Forgot the Password?{" "}
