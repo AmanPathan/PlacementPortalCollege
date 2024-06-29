@@ -105,17 +105,17 @@ const Login = () => {
                 </div>
 
                 <input
-                  class="mt-4  w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
+                  class="mt-4 pt-2 pb-2 w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
                   type="submit"
                   value="Login"
                 />
               </form>
-              <button
+              {/* <button
                 onClick={handleclick}
                 class="mt-2  w-full cursor-pointer rounded-lg bg-blue-600 pt-2 pb-2 text-white shadow-lg hover:bg-blue-400"
               >
                 Login with Google
-              </button>
+              </button> */}
               <div class="mt-4 text-center">
                 <p class="text-sm text-gray-600">
                   Forgot the Password?{" "}
