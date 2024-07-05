@@ -20,7 +20,7 @@ const Navbar = () => {
                 {/* <p className='dyp_name'>Placement Portal</p> */}
                 <div className='nav_div'>
                     <p className='dyp_name1' onClick={handleRedirectDashboard}><img className='navbar_user' src={user} />Dashboard</p>
-                    <p className='dyp_name1' onClick={handleRedirectLogin}><img src={compete} className='compete_icon'/> Hackathons</p>
+                    {/* <p className='dyp_name1' onClick={handleRedirectLogin}><img src={compete} className='compete_icon'/> Hackathons</p> */}
                 </div>
             </div>
         </div>

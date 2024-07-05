@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom'
 import sort from '../Assets/sort.png';
 import check from '../Assets/check.png';
 
-const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J4YbeO4oJvIIZuxRal7VD349eP0phxSaaTmrPTMu4mqIz3ZbYFx93F9YiXBuiaFBL2yYPiu5UcihxZh54imjzKiMZaA2b5zVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCm_1kVhFXvHREi5EbChZ8bP0owEZxE-0PS3iwwP25utDTAz1RiYZaqp_4rA5QWQaSbggJk4C1L2JL1Hb041VPOQ7kzyZdT-5Q&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
+//const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=J4YbeO4oJvIIZuxRal7VD349eP0phxSaaTmrPTMu4mqIz3ZbYFx93F9YiXBuiaFBL2yYPiu5UcihxZh54imjzKiMZaA2b5zVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCm_1kVhFXvHREi5EbChZ8bP0owEZxE-0PS3iwwP25utDTAz1RiYZaqp_4rA5QWQaSbggJk4C1L2JL1Hb041VPOQ7kzyZdT-5Q&lib=Mu7cgZbbJR3Jsd9m20phPH86idZU4jP8o';
 
 
 const Student = ({ data }) => {
@@ -108,12 +108,12 @@ const Student = ({ data }) => {
           </div>
           <div className='sort_div'>
             <p className='sort_name' onClick={() => { setShowDiv(!showDiv) }}>sort by</p>
-            <img src={sort} className='sort_img' onClick={() => { setShowDiv(!showDiv) }} />
+            <img src={sort} className='sort_img' alt='none' />
             <div className={showDiv ? 'sort_dropdown' : 'sort_dropdown_none'}>
               <ul className='sort_ul'>
-                <li className='sort_li' onClick={(e) => { handleCheck1(1) }}>Name &#42779;<img src={check} className={check_flag === 1 ? 'check_img' : "check_img_none"} /></li>
-                <li className='sort_li' onClick={(e) => { handleCheck2(2) }}>Year &#42780;<img src={check} className={check_flag === 2 ? 'check_img' : "check_img_none"} /></li>
-                <li className='sort_li' onClick={(e) => { handleCheck3(3) }}>Package &#42780;<img src={check} className={check_flag === 3 ? 'check_img' : "check_img_none"} /></li>
+                <li className='sort_li' onClick={(e) => { handleCheck1(1) }}>Name &#42779;<img src={check} className={check_flag === 1 ? 'check_img' : "check_img_none"} alt=''/></li>
+                <li className='sort_li' onClick={(e) => { handleCheck2(2) }}>Year &#42780;<img src={check} className={check_flag === 2 ? 'check_img' : "check_img_none"} alt=''/></li>
+                <li className='sort_li' onClick={(e) => { handleCheck3(3) }}>Package &#42780;<img src={check} className={check_flag === 3 ? 'check_img' : "check_img_none"} alt='' /></li>
               </ul>
             </div>
           </div>

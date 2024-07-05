@@ -9,7 +9,6 @@ import logo2 from '../Assets/virtusa.png';
 import logo3 from '../Assets/accenture.png';
 import logo4 from '../Assets/capgemini.png';
 import logo5 from '../Assets/emerson.png';
-// import logo6 from '../Assets/godrej.png';
 import logo7 from '../Assets/mahindra.png';
 import logo8 from '../Assets/ptc.png';
 import logo9 from '../Assets/tcs.png';

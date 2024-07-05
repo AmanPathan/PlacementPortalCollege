@@ -15,11 +15,13 @@ import axios from "axios";
 import InternshipLoader from "./InternshipLoader";
 
 const Profile = ({ data }) => {
-  const { ID } = useParams();
+  const  {ID}  = useParams();
   const navigate = useNavigate();
   const filteredData = data.filter((item) => {
     return item.UID === ID;
   });
+
+
   let UID,
     Email1,
     Name,

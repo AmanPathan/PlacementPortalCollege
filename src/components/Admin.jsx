@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/Admin.css';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import {  signOut } from 'firebase/auth';
 import { get, set, ref } from 'firebase/database';
 import { useState, useEffect } from 'react';
 import { auth, database } from '../firebaseConfig';
@@ -19,11 +19,12 @@ const Admin = () => {
             }, 2000);
         }).catch((err) => {
             toast.error('Something went Wrong!');
+            console.log("change");
         })
     }
 
     let date = new Date();
-
+    
 // -------------------------------------------------------------------------------
     // placement statistics
 
@@ -35,27 +36,30 @@ const Admin = () => {
     });
 
     const handelChange1 = (e) => {
+        console.log(e);
         const { name, value } = e.target;
         setStatData({ ...statData, [name]: value });
     }
 
     
+    const statRef = ref(database, 'dashboard/statistics');
     const get_stats = async () => {
-        const studentsRef = ref(database, 'dashboard/statistics');
-        const snapshot = await get(studentsRef);
+        const snapshot = await get(statRef);
         if (snapshot.exists()) {
             const curr_data = Object.values(snapshot.val());
             setStatData(curr_data[0]);
+            // console.log(curr_data);
         }
         else {
             toast.error('Error Fecthing Statistics!');
         }
     }
 
+   //        const newDataRef = ref(database, 'dashboard/statistics');
+
     const updateData1 = (e) => {
         e.preventDefault();
-        const newDataRef = ref(database, 'dashboard/statistics');
-        set(newDataRef, {
+        set(statRef, {
             data: {
                 totalStudents: statData.totalStudents,
                 placedStudents: statData.placedStudents,

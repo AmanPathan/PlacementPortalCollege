@@ -3,36 +3,21 @@ import "../Styles/Common.css";
 import "../Styles/Dashboard.css";
 import Sidebar from "../components/Sidebar";
 import user from "../Assets/user_profile.png";
-import search from "../Assets/search.png";
 import InternshipLoader from './InternshipLoader';
 import '../Styles/InternshipLoader.css';
 import { useNavigate } from "react-router-dom";
 import dummy from '../Assets/dummy.jpg';
 import toast, { Toaster } from 'react-hot-toast';
-
-
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth, database } from '../firebaseConfig';
-import { get, set, ref } from 'firebase/database';
-
-
-import {
-  BarChart,
-  Bar,
-  Rectangle,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { get, ref } from 'firebase/database';
+import {BarChart,Bar,XAxis,YAxis,Tooltip,} from "recharts";
 
 
 function Dashboard({ data }) {
+  // console.log(data);  
   const [authUser, setAuthUser] = useState(null);
   const [username, setUsername] = useState('');
-  const [maxpackages, setPackages] = useState(null);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -71,7 +56,7 @@ function Dashboard({ data }) {
 
 
   const [graphData, setGraphData] = useState({});
-  const [stats, setStats] = useState([]);
+
 
 
   let jd_data = data.map((item) => {
@@ -81,7 +66,7 @@ function Dashboard({ data }) {
   let unique_data = new Set(jd_data);
   const jdData = Array.from(unique_data);
 
-  console.log(unique_data);
+  // console.log(unique_data);
 
   const SortStudents = () => {
     // sort data
@@ -91,7 +76,7 @@ function Dashboard({ data }) {
       } else if (a.Package < b.Package) {
         return 1;
       } else {
-        return 0;
+        return 0;   
       }
     });
   }
@@ -115,6 +100,8 @@ function Dashboard({ data }) {
       toast.error('Error Fecthing Graph Data!');
     }
   }
+
+  const [stats, setStats] = useState([]);
   const get_stats = async () => {
     const studentsRef = ref(database, 'dashboard/statistics');
     const snapshot = await get(studentsRef);
@@ -132,27 +119,19 @@ function Dashboard({ data }) {
     get_stats();
   }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     SortStudents();
-  },[data])
+  },[]);
   const navigate = useNavigate();
 
-  const handleClick = (data) => {
-    navigate("/students", {
-      state: {
-        company_selected: { data },
-      }
-    })
-  }
 
-  const date = new Date();
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
           <p className="custom-label">{`Year : ${label} `}</p>
           <p className="custom-label">{`Max Package : ${payload[0].value} LPA`}</p>
-        </div>
+        </div>  
       );
     }
 
@@ -182,12 +161,11 @@ function Dashboard({ data }) {
                 <button className="admin_profile" onClick={() => { navigate('/admin') }}>
                   <p className="admin_div">
                     <span className="admin_email text-sm text-[#f8b217] font-bold">{username.slice(0, username.indexOf('@'))}</span>
-                    <a href="/admin" className="admin_role">Go to Dashboard</a>
+                    <p className="admin_role">Go to Dashboard</p>
                   </p>
-                  <img src={user} className="admin_img" />
+                  <img src={user} className="admin_img m-2" alt="abc"/>
                 </button>
-                : <button className="w-fit flex justify-content-center items-center text-lg font-bold bg-[#373737] p-1 rounded-full ps-2 pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" />Login</button>}
-              {/* <button className="admin"><img src={user} className="user_img"/> Login</button> */}
+                : <button className="w-fit flex  justify-content-center items-center text-lg font-bold bg-[#373737] p-2 rounded-full ps-2 pe-2 hover:bg-[#4a71fc]" onClick={() => { navigate('/login') }}><img src={user} className="admin_img" alt="user"/>Login</button>}
             </div>
             <div className="flex_container1">
               <div className="flex_item1">
@@ -244,7 +222,7 @@ function Dashboard({ data }) {
                       return (
                         <>
                           <div className="flex align-items-center justify-content-center p-1 bg-[#373737] hover:bg-[#444444] rounded-lg cursor-pointer" key={index}>
-                            <p className="text text-gray font-bold" onClick={()=>{navigate('/students')}}>{item}</p>
+                            <p className="text text-gray font-bold" onClick={() => { navigate('/students') }}>{item}</p>
                           </div>
                         </>
                       )
@@ -259,13 +237,14 @@ function Dashboard({ data }) {
                 <div className="packages_div">
                   {
                     data.slice(0, 5).map((item, index) => {
+                      {/* console.log(item); */}
                       const { Name, Package, Company, UID, ProfileLink, Year } = item;
                       const profileImg = ProfileLink.slice(33,);
 
                       return (
                         <div key={index} className="highest_package" onClick={() => { navigate(`/students/${UID}`) }}>
                           {profileImg ?
-                            <img src={`https://drive.google.com/thumbnail?id=${ProfileLink.slice(33,)}`}
+                            <img src={`https://drive.google.com/thumbnail?id=${profileImg}`}
                               className="card_img_dashboard spin circle" alt='Not Found' />
                             : <img src={dummy} alt="pic" className="card_img_dashboard spin circle" />}
                           <h3 className="highest_packagetext1"><span className="text-animation">{Name.split(" ")[0] + " " + Name.split(" ")[Name.split(" ").length - 1]}</span><span className="highest_packagetext2">{Company}</span></h3>
@@ -300,6 +279,7 @@ function Dashboard({ data }) {
             </div>
           </div>
           :
+          //this is loader which will be executed while our data is loading
           <div className='loading_div'>
             <InternshipLoader />
           </div>

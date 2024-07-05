@@ -12,9 +12,7 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import axios from 'axios';
 import { Analytics } from "@vercel/analytics/react";
-import Demo from './components/Demo';
-
-import { get, ref, set, push, getDatabase } from 'firebase/database';
+import { get, ref } from 'firebase/database';
 import { useState, useEffect } from 'react';
 import { database,auth } from '../src/firebaseConfig.js';
 import Admin from './components/Admin.jsx';
@@ -52,9 +50,10 @@ function App() {
     const studentsRef = ref(database, 'Students');
     get(studentsRef).then((snapshot) => {
       if (snapshot.exists()) {
-        const studentsArray = Object.entries(snapshot.val()).map(([id, data]) => ({
-          id, ...data,
-        }));
+        // const studentsArray = Object.entries(snapshot.val()).map(([id, data]) => ({
+        //   id, ...data,
+        // }));
+        const studentsArray=Object.values(snapshot.val());
         // console.log("This is"+studentsArray[0][0]);
         setStudents(studentsArray);
       }
